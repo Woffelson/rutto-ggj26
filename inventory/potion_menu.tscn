@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://dihx6uxfc23ex"]
+
+[ext_resource type="Script" uid="uid://2qlvqtx81g60" path="res://inventory/potion_menu.gd" id="1_cy0pm"]
+[ext_resource type="Shader" uid="uid://ccsq258bkh1vl" path="res://shaders/distortion0.gdshader" id="2_84cd3"]
+[ext_resource type="PackedScene" uid="uid://u8lfpsvw5nj1" path="res://inventory/potion.tscn" id="3_xysyh"]
+
+[sub_resource type="Gradient" id="Gradient_8puv6"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_la7sg"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_m6yvu"]
+noise = SubResource("FastNoiseLite_la7sg")
+color_ramp = SubResource("Gradient_8puv6")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ww60m"]
+shader = ExtResource("2_84cd3")
+shader_parameter/render_noise = false
+shader_parameter/move_top = true
+shader_parameter/distortion_force = Vector2(50, -25)
+shader_parameter/time_scale = 0.1
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_m6yvu")
+shader_parameter/noise_scale = 0.002
+shader_parameter/global_transform = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_sx2qt"]
+offsets = PackedFloat32Array(0.560241, 0.6927711)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_432oq"]
+gradient = SubResource("Gradient_sx2qt")
+width = 512
+height = 512
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="PotionMenu" type="Node2D" unique_id=1506068141]
+script = ExtResource("1_cy0pm")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=256363939]
+offset_right = 1920.0
+offset_bottom = 1088.0
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=416976150]
+color = Color(0, 0, 0, 1)
+
+[node name="Potions" type="Node2D" parent="." unique_id=379194781]
+unique_name_in_owner = true
+
+[node name="Potion" parent="Potions" unique_id=108561584 instance=ExtResource("3_xysyh")]
+position = Vector2(296, 344)
+
+[node name="Potion2" parent="Potions" unique_id=643095356 instance=ExtResource("3_xysyh")]
+position = Vector2(544, 344)
+
+[node name="Potion3" parent="Potions" unique_id=785312524 instance=ExtResource("3_xysyh")]
+position = Vector2(824, 344)
+
+[node name="Potion4" parent="Potions" unique_id=1754697629 instance=ExtResource("3_xysyh")]
+position = Vector2(1120, 344)
+
+[node name="distortion" type="ColorRect" parent="." unique_id=1169812036]
+material = SubResource("ShaderMaterial_ww60m")
+offset_right = 1920.0
+offset_bottom = 1088.0
+mouse_filter = 1
+
+[node name="Lenses" type="Node2D" parent="." unique_id=592762154]
+unique_name_in_owner = true
+position = Vector2(1032, 456)
+metadata/_edit_group_ = true
+
+[node name="PointLight2D" type="PointLight2D" parent="Lenses" unique_id=1840654622]
+position = Vector2(-640, 0)
+texture = SubResource("GradientTexture2D_432oq")
+
+[node name="PointLight2D2" type="PointLight2D" parent="Lenses" unique_id=1855812836]
+texture = SubResource("GradientTexture2D_432oq")
