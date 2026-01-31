@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://dqfs4x664vmu0" path="res://map/gfx/tausta_taivas.png" id="2_idgu5"]
 [ext_resource type="PackedScene" uid="uid://brgwbxcdboapv" path="res://map/house.tscn" id="3_0dvof"]
 [ext_resource type="Texture2D" uid="uid://douprhrw4j3ub" path="res://map/gfx/tausta_maa.png" id="3_6rqhj"]
-[ext_resource type="PackedScene" path="res://map/Torchparticle.tscn" id="4_eg7ip"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lhyto"]
 size = Vector2(32, 2160)
@@ -88,9 +87,6 @@ position = Vector2(536, -104)
 
 [node name="House2" parent="Houses" unique_id=1336901131 instance=ExtResource("3_0dvof")]
 position = Vector2(-704, -104)
-
-[node name="Torchparticle" parent="." unique_id=986599773 instance=ExtResource("4_eg7ip")]
-position = Vector2(320, -104)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2013669849]
 follow_viewport_enabled = true
@@ -187,7 +183,7 @@ texture = SubResource("NoiseTexture2D_6rqhj")
 metadata/_edit_use_anchors_ = true
 
 [node name="Border2" type="StaticBody2D" parent="CanvasLayer/Borders" unique_id=1406850456]
-position = Vector2(3632, 0)
+position = Vector2(3840, 0)
 rotation = 3.1415927
 scale = Vector2(1, -1)
 metadata/_edit_group_ = true

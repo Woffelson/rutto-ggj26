@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://d30q3mjtfipc2" path="res://map/gfx/talo1.png" id="2_0hmyt"]
 [ext_resource type="Texture2D" uid="uid://dwvcmi5dbkfhl" path="res://icon.svg" id="2_m7pmm"]
 [ext_resource type="Texture2D" uid="uid://d01ak2xr5wuft" path="res://map/gfx/talo1_ovi.png" id="4_j5a6b"]
+[ext_resource type="Texture2D" uid="uid://b0yka7gju2t0w" path="res://map/gfx/bald.png" id="4_oq2v2"]
+[ext_resource type="PackedScene" path="res://map/Torchparticle.tscn" id="5_j5a6b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a73il"]
 size = Vector2(192, 128)
@@ -39,10 +41,9 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_m7pmm")
 
 [node name="Sprite2D3" type="Sprite2D" parent="." unique_id=2130970198]
-visible = false
-position = Vector2(0, 40)
-scale = Vector2(0.25, 0.4)
-texture = ExtResource("2_m7pmm")
+position = Vector2(-8, 32)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_oq2v2")
 
 [node name="Door" type="Sprite2D" parent="." unique_id=699056726]
 unique_name_in_owner = true
@@ -50,6 +51,12 @@ position = Vector2(16, 32)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("4_j5a6b")
 offset = Vector2(-96, 0)
+
+[node name="Torchparticle" parent="." unique_id=986599773 instance=ExtResource("5_j5a6b")]
+position = Vector2(-64, 0)
+
+[node name="Torchparticle2" parent="." unique_id=2036873771 instance=ExtResource("5_j5a6b")]
+position = Vector2(60, 0)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

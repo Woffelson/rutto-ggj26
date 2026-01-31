@@ -44,7 +44,7 @@ texture = ExtResource("2_224g0")
 unique_name_in_owner = true
 limit_left = -1920
 limit_top = -1080
-limit_right = 1920
+limit_right = 3840
 limit_bottom = 640
 limit_smoothed = true
 
