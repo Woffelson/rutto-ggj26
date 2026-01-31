@@ -94,6 +94,7 @@ texture = ExtResource("5_6u0wj")
 [node name="Cough" type="AudioStreamPlayer" parent="." unique_id=243592672]
 unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_ylx0i")
+bus = &"drSFX"
 
 [node name="Timer" type="Timer" parent="." unique_id=904419980]
 unique_name_in_owner = true
