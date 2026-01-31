@@ -6,7 +6,7 @@ class_name PotionMenu extends Node2D
 @onready var timer: Timer = %Timer
 
 func _ready() -> void:
-	timer.wait_time = randi_range(4,8)
+	timer.wait_time = randi_range(5,10)
 	for potion: Potion in potions.get_children():
 		potion.selected.connect(get_potion)
 
@@ -21,4 +21,4 @@ func get_potion(current_potion: Potion) -> void:
 
 func _on_timer_timeout() -> void:
 	cough.play()
-	timer.wait_time = randi_range(4,8)
+	timer.wait_time = randi_range(5,10)
