@@ -33,7 +33,7 @@ color_ramp = SubResource("Gradient_s8ynm")
 seamless = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bxsvc"]
-size = Vector2(32, 3840)
+size = Vector2(32, 7680)
 
 [sub_resource type="Gradient" id="Gradient_0dvof"]
 offsets = PackedFloat32Array(0.05421687, 1)
@@ -68,11 +68,12 @@ anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -1904.0
 offset_top = 16.0
-offset_right = 1936.0
+offset_right = 5776.0
 offset_bottom = 1096.0
 grow_horizontal = 2
 texture = ExtResource("3_6rqhj")
 expand_mode = 1
+stretch_mode = 2
 
 [node name="Player" parent="." unique_id=1213860621 instance=ExtResource("1_f2kjn")]
 unique_name_in_owner = true
@@ -169,8 +170,24 @@ offset_bottom = 3840.0
 texture = SubResource("NoiseTexture2D_6rqhj")
 metadata/_edit_use_anchors_ = true
 
+[node name="Mask2" type="TextureRect" parent="CanvasLayer/Borders/Border4" unique_id=1214373520]
+clip_children = 2
+offset_left = -128.0001
+offset_top = 1920.0
+offset_right = 383.99988
+offset_bottom = 5760.0
+texture = SubResource("GradientTexture2D_eg7ip")
+metadata/_edit_use_anchors_ = true
+
+[node name="Fog" type="TextureRect" parent="CanvasLayer/Borders/Border4/Mask2" unique_id=205422051]
+layout_mode = 0
+offset_right = 512.0
+offset_bottom = 3840.0
+texture = SubResource("NoiseTexture2D_6rqhj")
+metadata/_edit_use_anchors_ = true
+
 [node name="Border2" type="StaticBody2D" parent="CanvasLayer/Borders" unique_id=1406850456]
-position = Vector2(1816, 0)
+position = Vector2(3632, 0)
 rotation = 3.1415927
 scale = Vector2(1, -1)
 metadata/_edit_group_ = true

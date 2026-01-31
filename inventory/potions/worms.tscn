@@ -18,5 +18,14 @@ texture = ExtResource("2_xvg1g")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1201477155]
 shape = SubResource("CapsuleShape2D_t0cku")
 
+[node name="Label" type="Label" parent="." unique_id=1448445939]
+custom_minimum_size = Vector2(128, 0)
+offset_left = -88.0
+offset_right = 40.0
+offset_bottom = 141.0
+text = "adslfkjh asd asdiu ja
+asdlkjhal"
+autowrap_mode = 2
+
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
