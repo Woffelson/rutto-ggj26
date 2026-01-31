@@ -1,5 +1,9 @@
 [gd_resource type="Theme" format=3 uid="uid://cu3chuo0xfsju"]
 
+[ext_resource type="FontFile" uid="uid://ltgcqd11vqpn" path="res://JBLACK.TTF" id="1_6wn0y"]
+
 [resource]
 Button/font_sizes/font_size = 32
-Label/font_sizes/font_size = 32
+Label/colors/font_color = Color(0.12225223, 0.12225225, 0.1222522, 0.89411765)
+Label/font_sizes/font_size = 24
+Label/fonts/font = ExtResource("1_6wn0y")

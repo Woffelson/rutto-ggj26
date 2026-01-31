@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://ltgcqd11vqpn"
-path="res://.godot/imported/JBLACK.TTF-55b4aa50feddb6946031be50f375aea6.fontdata"
+path="res://.godot/imported/JBLACK.TTF-b89fed93062e4fb11ec5f3de268f73be.fontdata"
 
 [deps]
 
-source_file="res://inventory/gfx/JBLACK.TTF"
-dest_files=["res://.godot/imported/JBLACK.TTF-55b4aa50feddb6946031be50f375aea6.fontdata"]
+source_file="res://JBLACK.TTF"
+dest_files=["res://.godot/imported/JBLACK.TTF-b89fed93062e4fb11ec5f3de268f73be.fontdata"]
 
 [params]
 

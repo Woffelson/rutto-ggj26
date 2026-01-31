@@ -33,17 +33,20 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
+[node name="Label" type="Label" parent="MarginContainer" unique_id=491313240]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 0.89411765)
+theme_override_font_sizes/font_size = 64
+text = "Rutto Tohtori Simu Peli
+G.G.J. 2026"
+
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1501146011]
 custom_minimum_size = Vector2(256, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/separation = 16
 alignment = 1
-
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=491313240]
-layout_mode = 2
-text = "RUTTO TOHTORI SIMU PELI
-GGJ2026"
 
 [node name="Start" type="Button" parent="MarginContainer/VBoxContainer" unique_id=453834190]
 unique_name_in_owner = true

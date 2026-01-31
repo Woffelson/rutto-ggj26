@@ -16,7 +16,19 @@ texture = ExtResource("2_uedmp")
 offset = Vector2(-8, -8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1201477155]
+visible = false
 shape = SubResource("CapsuleShape2D_t0cku")
+
+[node name="Label" type="Label" parent="." unique_id=407767791]
+custom_minimum_size = Vector2(128, 0)
+offset_left = -56.0
+offset_top = 32.0
+offset_right = 72.0
+offset_bottom = 173.0
+theme_override_font_sizes/font_size = 16
+text = "adslfkjh asd asdiu ja
+asdlkjhal"
+autowrap_mode = 2
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

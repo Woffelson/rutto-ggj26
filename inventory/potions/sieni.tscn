@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ccuyoslk7xd73" path="res://inventory/potions/potion.gd" id="1_2mou0"]
 [ext_resource type="Texture2D" uid="uid://d7c47r4wp1e2" path="res://inventory/gfx/sieni.png" id="2_2mou0"]
+[ext_resource type="Texture2D" uid="uid://bdd7565h6d5g8" path="res://inventory/gfx/tagi.png" id="2_x3h4i"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t0cku"]
 radius = 64.0
@@ -12,11 +13,27 @@ script = ExtResource("1_2mou0")
 type = 2
 metadata/_edit_group_ = true
 
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1983335437]
+position = Vector2(104.00001, 32.000008)
+rotation = 2.7925267
+texture = ExtResource("2_x3h4i")
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=530984893]
 texture = ExtResource("2_2mou0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1201477155]
 shape = SubResource("CapsuleShape2D_t0cku")
+
+[node name="Label" type="Label" parent="." unique_id=537456424]
+custom_minimum_size = Vector2(120, 0)
+offset_left = 96.0
+offset_top = -24.000006
+offset_right = 216.0
+offset_bottom = 116.99999
+rotation = 0.6614798
+text = "adslfkjh asd asdiu ja
+asdlkjhal"
+autowrap_mode = 2
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
