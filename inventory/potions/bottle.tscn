@@ -20,6 +20,7 @@ visible = false
 shape = SubResource("CapsuleShape2D_t0cku")
 
 [node name="Label" type="Label" parent="." unique_id=407767791]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(128, 0)
 offset_left = -56.0
 offset_top = 32.0

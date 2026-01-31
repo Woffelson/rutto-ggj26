@@ -9,7 +9,7 @@ height = 128.0
 
 [node name="Berries" type="Area2D" unique_id=108561584]
 script = ExtResource("1_sx8lg")
-type = 5
+type = 4
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=530984893]
@@ -20,6 +20,7 @@ visible = false
 shape = SubResource("CapsuleShape2D_t0cku")
 
 [node name="Label" type="Label" parent="." unique_id=2101517344]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(128, 0)
 offset_left = -16.0
 offset_top = -16.0

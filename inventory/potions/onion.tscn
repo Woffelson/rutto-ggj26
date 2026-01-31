@@ -9,7 +9,7 @@ height = 256.0
 
 [node name="Onion" type="Area2D" unique_id=108561584]
 script = ExtResource("1_gdfjh")
-type = 4
+type = 3
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=530984893]
@@ -20,11 +20,13 @@ visible = false
 shape = SubResource("CapsuleShape2D_t0cku")
 
 [node name="Label" type="Label" parent="." unique_id=789316595]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(128, 0)
 offset_left = -72.0
 offset_top = -16.0
 offset_right = 56.0
 offset_bottom = 125.0
+theme_override_colors/font_color = Color(0.8, 0.72906667, 0.57600003, 0.89411765)
 theme_override_font_sizes/font_size = 20
 text = "For use against sniffles and flu"
 autowrap_mode = 2

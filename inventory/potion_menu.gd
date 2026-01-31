@@ -1,19 +1,27 @@
 class_name PotionMenu extends Node2D
 
+var potion_scenes: Array[Potion] #healthy and unhealthy ones
+
 @onready var lenses: Node2D = %Lenses
 @onready var potions: Node2D = %Potions
 @onready var cough: AudioStreamPlayer = %Cough
 @onready var timer: Timer = %Timer
-@onready var potion_scenes: Array[Potion] = [
-	preload("res://inventory/potions/berries.tscn").instantiate(),
-	preload("res://inventory/potions/bottle.tscn").instantiate(),
-	preload("res://inventory/potions/onion.tscn").instantiate(),
-	preload("res://inventory/potions/sieni.tscn").instantiate(),
-	preload("res://inventory/potions/worms.tscn").instantiate(),
+@onready var potion_scene_paths: Array[PackedScene] = [
+	preload("res://inventory/potions/berries.tscn"),
+	preload("res://inventory/potions/bottle.tscn"),
+	preload("res://inventory/potions/onion.tscn"),
+	preload("res://inventory/potions/sieni.tscn"),
+	preload("res://inventory/potions/worms.tscn"),
 ]
 
 func _ready() -> void:
 	timer.wait_time = randi_range(5,10)
+	for potion_resource: PackedScene in potion_scene_paths:
+		potion_scenes.append(potion_resource.instantiate())
+	for potion_resource: PackedScene in potion_scene_paths:
+		var poison: Potion = potion_resource.instantiate()
+		poison.healthy = false
+		potion_scenes.append(poison)
 
 func _enter_tree() -> void:
 	await get_tree().process_frame
@@ -24,10 +32,10 @@ func set_potions() -> void:
 		for potion: Potion in potions.get_children(): potions.remove_child(potion)
 	potion_scenes.shuffle()
 	for potion: int in potion_scenes.size(): #potions.get_children():
-		var xx: int = 256*(potion+1)+256
+		var xx: int = 240*(potion+1)+222
 		var yy: int = 256
-		if potion > 3:
-			xx = 256*(potion+1-4)+256
+		if potion > 4:
+			xx = 240*(potion+1-5)+222
 			yy = 550
 		potion_scenes[potion].position = Vector2(xx,yy)
 		potions.add_child(potion_scenes[potion])

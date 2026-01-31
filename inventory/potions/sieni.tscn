@@ -10,7 +10,7 @@ height = 200.0
 
 [node name="Sieni" type="Area2D" unique_id=108561584]
 script = ExtResource("1_2mou0")
-type = 2
+type = 1
 metadata/_edit_group_ = true
 
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1983335437]
@@ -25,13 +25,14 @@ texture = ExtResource("2_2mou0")
 shape = SubResource("CapsuleShape2D_t0cku")
 
 [node name="Label" type="Label" parent="." unique_id=537456424]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(120, 0)
-offset_left = 106.99999
-offset_top = -15.999999
-offset_right = 227.0
-offset_bottom = 125.0
+offset_left = 103.99999
+offset_top = -7.999998
+offset_right = 224.0
+offset_bottom = 133.0
 rotation = 0.6614798
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 20
 text = "A soothing 
 trip to calm
 pain-ridden
