@@ -14,10 +14,25 @@ class_name PotionMenu extends Node2D
 
 func _ready() -> void:
 	timer.wait_time = randi_range(5,10)
-	for potion: int in potion_scenes.size()-1: #potions.get_children():
-		potion_scenes[potion].position = Vector2(256*(potion+1)+256,256)
+
+func _enter_tree() -> void:
+	await get_tree().process_frame
+	set_potions()
+
+func set_potions() -> void:
+	if potions.get_child_count() > 0:
+		for potion: Potion in potions.get_children(): potions.remove_child(potion)
+	potion_scenes.shuffle()
+	for potion: int in potion_scenes.size(): #potions.get_children():
+		var xx: int = 256*(potion+1)+256
+		var yy: int = 256
+		if potion > 3:
+			xx = 256*(potion+1-4)+256
+			yy = 550
+		potion_scenes[potion].position = Vector2(xx,yy)
 		potions.add_child(potion_scenes[potion])
-		potion_scenes[potion].selected.connect(get_potion)
+		if !potion_scenes[potion].selected.is_connected(get_potion):
+			potion_scenes[potion].selected.connect(get_potion)
 
 func _physics_process(_delta: float) -> void:
 	lenses.position = get_global_mouse_position()
