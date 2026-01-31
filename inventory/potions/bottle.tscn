@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://d4doxw7amjpwb"]
+
+[ext_resource type="Script" uid="uid://ccuyoslk7xd73" path="res://inventory/potions/potion.gd" id="1_uedmp"]
+[ext_resource type="Texture2D" uid="uid://d05v5tdrxmtqh" path="res://inventory/gfx/pullo.png" id="2_uedmp"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t0cku"]
+radius = 64.0
+height = 256.0
+
+[node name="Bottle" type="Area2D" unique_id=108561584]
+script = ExtResource("1_uedmp")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=530984893]
+texture = ExtResource("2_uedmp")
+offset = Vector2(-8, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1201477155]
+shape = SubResource("CapsuleShape2D_t0cku")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

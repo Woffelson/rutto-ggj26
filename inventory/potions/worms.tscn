@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://u8lfpsvw5nj1"]
+
+[ext_resource type="Script" uid="uid://ccuyoslk7xd73" path="res://inventory/potions/potion.gd" id="1_km8uv"]
+[ext_resource type="Texture2D" uid="uid://dmy855sdwsab3" path="res://inventory/gfx/iilimatopurkki.png" id="2_xvg1g"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t0cku"]
+radius = 96.0
+height = 256.0
+
+[node name="Worms" type="Area2D" unique_id=108561584]
+script = ExtResource("1_km8uv")
+type = 3
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=530984893]
+texture = ExtResource("2_xvg1g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1201477155]
+shape = SubResource("CapsuleShape2D_t0cku")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

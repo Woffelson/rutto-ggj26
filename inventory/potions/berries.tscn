@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bfjbr2h4x7tpl"]
+
+[ext_resource type="Script" uid="uid://ccuyoslk7xd73" path="res://inventory/potions/potion.gd" id="1_sx8lg"]
+[ext_resource type="Texture2D" uid="uid://c5nmlsdiovfn0" path="res://inventory/gfx/pussukka.png" id="2_sx8lg"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t0cku"]
+radius = 64.0
+height = 128.0
+
+[node name="Berries" type="Area2D" unique_id=108561584]
+script = ExtResource("1_sx8lg")
+type = 5
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=530984893]
+texture = ExtResource("2_sx8lg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1201477155]
+shape = SubResource("CapsuleShape2D_t0cku")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

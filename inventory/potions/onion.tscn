@@ -1,19 +1,19 @@
-[gd_scene format=3 uid="uid://u8lfpsvw5nj1"]
+[gd_scene format=3 uid="uid://gdaxfs3tx1r8"]
 
-[ext_resource type="Script" uid="uid://ccuyoslk7xd73" path="res://inventory/potion.gd" id="1_ahepa"]
-[ext_resource type="Texture2D" uid="uid://dwvcmi5dbkfhl" path="res://icon.svg" id="2_soj8u"]
+[ext_resource type="Script" uid="uid://ccuyoslk7xd73" path="res://inventory/potions/potion.gd" id="1_gdfjh"]
+[ext_resource type="Texture2D" uid="uid://bxh5hdnal5w8e" path="res://inventory/gfx/sipulit.png" id="2_gdfjh"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t0cku"]
-radius = 64.0
+radius = 96.0
 height = 256.0
 
-[node name="Potion" type="Area2D" unique_id=108561584]
-script = ExtResource("1_ahepa")
+[node name="Onion" type="Area2D" unique_id=108561584]
+script = ExtResource("1_gdfjh")
+type = 4
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=530984893]
-scale = Vector2(1, 2)
-texture = ExtResource("2_soj8u")
+texture = ExtResource("2_gdfjh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1201477155]
 shape = SubResource("CapsuleShape2D_t0cku")

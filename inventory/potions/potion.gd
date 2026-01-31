@@ -1,5 +1,9 @@
 class_name Potion extends Area2D
 
+enum Type {BOTTLE_A, BOTTLE_B, MUSHROOM, WORMS, ONION, BERRIES}
+
+@export var type: Type
+
 signal selected(p: Potion)
 
 var preselection: bool = false
