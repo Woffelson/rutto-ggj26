@@ -10,6 +10,7 @@ var target_position: Vector2 #mouse clicked target movemement
 var following = false #following mouse clicked position
 
 @onready var camera: Camera2D = %Camera
+@onready var animu_spr: AnimatedSprite2D = %Animu
 
 func _physics_process(delta: float) -> void:
 	hor_ctrl = Input.get_axis("key_left","key_right")
@@ -17,6 +18,7 @@ func _physics_process(delta: float) -> void:
 	if abs(hor_ctrl) > 0:
 		facing.x = sign(hor_ctrl)
 		if ver_ctrl == 0: facing.y = 0
+		animu_spr.flip_h = bool(min(0,-hor_ctrl))
 	if abs(ver_ctrl) > 0:
 		facing.y = sign(ver_ctrl)
 		if hor_ctrl == 0: facing.x = sign(facing.x)*0.5
@@ -26,6 +28,8 @@ func _physics_process(delta: float) -> void:
 		hor_ctrl = target_position.x - position.x
 		ver_ctrl = target_position.y - position.y
 	velocity = move(velocity * (delta * 60),hor_ctrl,ver_ctrl)
+	if velocity.length() > 0: animu_spr.play("walk")
+	else: animu_spr.play("idle")
 	move_and_slide()
 
 func _input(_event: InputEvent) -> void:

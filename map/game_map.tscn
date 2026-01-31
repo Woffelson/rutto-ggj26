@@ -2,33 +2,24 @@
 
 [ext_resource type="PackedScene" uid="uid://jotswtg1sxsa" path="res://map/player.tscn" id="1_f2kjn"]
 [ext_resource type="Script" uid="uid://5vcqb23b5itk" path="res://map/game_map.gd" id="1_lhyto"]
+[ext_resource type="Texture2D" uid="uid://dqfs4x664vmu0" path="res://map/gfx/tausta_taivas.png" id="2_idgu5"]
 [ext_resource type="PackedScene" uid="uid://brgwbxcdboapv" path="res://map/house.tscn" id="3_0dvof"]
+[ext_resource type="Texture2D" uid="uid://douprhrw4j3ub" path="res://map/gfx/tausta_maa.png" id="3_6rqhj"]
 [ext_resource type="PackedScene" path="res://map/Torchparticle.tscn" id="4_eg7ip"]
-
-[sub_resource type="Gradient" id="Gradient_lhyto"]
-offsets = PackedFloat32Array(0.24698795, 0.5903614, 0.87349397, 1)
-colors = PackedColorArray(0, 0, 0, 1, 0.10967166, 0.23, 0.062099997, 1, 0.15370001, 0.53, 0.40456668, 1, 0.29303998, 0.54, 0.2754, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_0dvof"]
-noise_type = 2
-frequency = 0.0091
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_eg7ip"]
-noise = SubResource("FastNoiseLite_0dvof")
-color_ramp = SubResource("Gradient_lhyto")
-seamless = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lhyto"]
 size = Vector2(32, 2160)
 
-[sub_resource type="Gradient" id="Gradient_0dvof"]
+[sub_resource type="Gradient" id="Gradient_idgu5"]
 offsets = PackedFloat32Array(0.05421687, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_eg7ip"]
-gradient = SubResource("Gradient_0dvof")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6rqhj"]
+gradient = SubResource("Gradient_idgu5")
 width = 512
 height = 512
+fill = 1
+fill_from = Vector2(0, 0.47826087)
 
 [sub_resource type="Gradient" id="Gradient_s8ynm"]
 colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1)
@@ -44,36 +35,61 @@ seamless = true
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bxsvc"]
 size = Vector2(32, 3840)
 
+[sub_resource type="Gradient" id="Gradient_0dvof"]
+offsets = PackedFloat32Array(0.05421687, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_eg7ip"]
+gradient = SubResource("Gradient_0dvof")
+width = 512
+height = 512
+
 [node name="GameMap" type="Node2D" unique_id=778971140]
 y_sort_enabled = true
 script = ExtResource("1_lhyto")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1970653817]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer2" unique_id=1447094472]
+offset_right = 3996.0
+offset_bottom = 2000.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_idgu5")
+expand_mode = 1
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1838679908]
 color = Color(0.36282963, 0.36282942, 0.36282936, 1)
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1237116614]
-offset_left = -1936.0
-offset_top = -1088.0
-offset_right = 1928.0
-offset_bottom = 1088.0
-texture = SubResource("NoiseTexture2D_eg7ip")
-stretch_mode = 1
+z_index = -1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -1904.0
+offset_top = 16.0
+offset_right = 1936.0
+offset_bottom = 1096.0
+grow_horizontal = 2
+texture = ExtResource("3_6rqhj")
+expand_mode = 1
 
 [node name="Player" parent="." unique_id=1213860621 instance=ExtResource("1_f2kjn")]
 unique_name_in_owner = true
+position = Vector2(8, 96)
 
 [node name="Houses" type="Node2D" parent="." unique_id=432063076]
 unique_name_in_owner = true
 y_sort_enabled = true
 
 [node name="House" parent="Houses" unique_id=743035152 instance=ExtResource("3_0dvof")]
-position = Vector2(536, -400)
+position = Vector2(536, -104)
 
 [node name="House2" parent="Houses" unique_id=1336901131 instance=ExtResource("3_0dvof")]
-position = Vector2(-688, -392)
+position = Vector2(-704, -104)
 
 [node name="Torchparticle" parent="." unique_id=986599773 instance=ExtResource("4_eg7ip")]
-position = Vector2(184, -323)
+position = Vector2(320, -104)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2013669849]
 follow_viewport_enabled = true
@@ -93,8 +109,7 @@ offset_left = -128.0
 offset_top = -1088.0
 offset_right = 384.0
 offset_bottom = 1096.0
-texture = SubResource("GradientTexture2D_eg7ip")
-stretch_mode = 1
+texture = SubResource("GradientTexture2D_6rqhj")
 metadata/_edit_use_anchors_ = true
 
 [node name="Fog" type="TextureRect" parent="CanvasLayer/Borders/Border/Mask" unique_id=527351598]
@@ -102,11 +117,9 @@ layout_mode = 0
 offset_right = 512.0
 offset_bottom = 2176.0
 texture = SubResource("NoiseTexture2D_6rqhj")
-stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Border3" type="StaticBody2D" parent="CanvasLayer/Borders" unique_id=237962523]
-position = Vector2(0, -960)
 rotation = 1.5707964
 metadata/_edit_group_ = true
 
@@ -114,6 +127,7 @@ metadata/_edit_group_ = true
 shape = SubResource("RectangleShape2D_bxsvc")
 
 [node name="Mask" type="TextureRect" parent="CanvasLayer/Borders/Border3" unique_id=208639692]
+visible = false
 clip_children = 2
 offset_left = -128.0
 offset_top = -1920.0
@@ -132,7 +146,7 @@ stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Border4" type="StaticBody2D" parent="CanvasLayer/Borders" unique_id=488142296]
-position = Vector2(0, 960)
+position = Vector2(0, 512)
 rotation = -1.5707964
 metadata/_edit_group_ = true
 
@@ -146,7 +160,6 @@ offset_top = -1920.0
 offset_right = 384.0
 offset_bottom = 1920.0
 texture = SubResource("GradientTexture2D_eg7ip")
-stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Fog" type="TextureRect" parent="CanvasLayer/Borders/Border4/Mask" unique_id=1394885086]
@@ -154,7 +167,6 @@ layout_mode = 0
 offset_right = 512.0
 offset_bottom = 3840.0
 texture = SubResource("NoiseTexture2D_6rqhj")
-stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Border2" type="StaticBody2D" parent="CanvasLayer/Borders" unique_id=1406850456]
@@ -173,11 +185,9 @@ offset_top = -1088.0
 offset_right = 384.0
 offset_bottom = 1096.0
 texture = SubResource("GradientTexture2D_eg7ip")
-stretch_mode = 1
 
 [node name="Fog" type="TextureRect" parent="CanvasLayer/Borders/Border2/Mask" unique_id=51641915]
 layout_mode = 0
 offset_right = 512.0
 offset_bottom = 2176.0
 texture = SubResource("NoiseTexture2D_6rqhj")
-stretch_mode = 1
