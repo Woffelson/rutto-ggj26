@@ -1,0 +1,173 @@
+[gd_scene format=3 uid="uid://bwokmj780epqj"]
+
+[ext_resource type="PackedScene" uid="uid://jotswtg1sxsa" path="res://map/player.tscn" id="1_f2kjn"]
+[ext_resource type="Script" uid="uid://5vcqb23b5itk" path="res://map/game_map.gd" id="1_lhyto"]
+[ext_resource type="PackedScene" uid="uid://brgwbxcdboapv" path="res://map/house.tscn" id="3_0dvof"]
+
+[sub_resource type="Gradient" id="Gradient_lhyto"]
+offsets = PackedFloat32Array(0.24698795, 0.5903614, 0.87349397, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.23, 0.12926, 0.062099997, 1, 0.53, 0.38575166, 0.15370001, 1, 0.54, 0.53118, 0.2754, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_0dvof"]
+noise_type = 2
+frequency = 0.0091
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_eg7ip"]
+noise = SubResource("FastNoiseLite_0dvof")
+color_ramp = SubResource("Gradient_lhyto")
+seamless = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lhyto"]
+size = Vector2(32, 2160)
+
+[sub_resource type="Gradient" id="Gradient_0dvof"]
+offsets = PackedFloat32Array(0.05421687, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_eg7ip"]
+gradient = SubResource("Gradient_0dvof")
+width = 512
+height = 512
+
+[sub_resource type="Gradient" id="Gradient_s8ynm"]
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_idgu5"]
+noise_type = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_6rqhj"]
+noise = SubResource("FastNoiseLite_idgu5")
+color_ramp = SubResource("Gradient_s8ynm")
+seamless = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bxsvc"]
+size = Vector2(32, 3840)
+
+[node name="GameMap" type="Node2D" unique_id=778971140]
+y_sort_enabled = true
+script = ExtResource("1_lhyto")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1237116614]
+offset_left = -1936.0
+offset_top = -1088.0
+offset_right = 1928.0
+offset_bottom = 1088.0
+texture = SubResource("NoiseTexture2D_eg7ip")
+stretch_mode = 1
+
+[node name="Player" parent="." unique_id=1213860621 instance=ExtResource("1_f2kjn")]
+unique_name_in_owner = true
+
+[node name="Borders" type="Node2D" parent="." unique_id=1066617043]
+
+[node name="Border" type="StaticBody2D" parent="Borders" unique_id=726616580]
+position = Vector2(-1816, 0)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Border" unique_id=240014488]
+shape = SubResource("RectangleShape2D_lhyto")
+
+[node name="Mask" type="TextureRect" parent="Borders/Border" unique_id=1067864861]
+clip_children = 2
+offset_left = -128.0
+offset_top = -1088.0
+offset_right = 384.0
+offset_bottom = 1096.0
+texture = SubResource("GradientTexture2D_eg7ip")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Fog" type="TextureRect" parent="Borders/Border/Mask" unique_id=527351598]
+layout_mode = 0
+offset_right = 512.0
+offset_bottom = 2176.0
+texture = SubResource("NoiseTexture2D_6rqhj")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Border3" type="StaticBody2D" parent="Borders" unique_id=237962523]
+position = Vector2(0, -960)
+rotation = 1.5707964
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Border3" unique_id=1032609660]
+shape = SubResource("RectangleShape2D_bxsvc")
+
+[node name="Mask" type="TextureRect" parent="Borders/Border3" unique_id=208639692]
+clip_children = 2
+offset_left = -128.0
+offset_top = -1920.0
+offset_right = 384.0
+offset_bottom = 1920.0
+texture = SubResource("GradientTexture2D_eg7ip")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Fog" type="TextureRect" parent="Borders/Border3/Mask" unique_id=708963917]
+layout_mode = 0
+offset_right = 512.0
+offset_bottom = 3840.0
+texture = SubResource("NoiseTexture2D_6rqhj")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Border4" type="StaticBody2D" parent="Borders" unique_id=488142296]
+position = Vector2(0, 960)
+rotation = -1.5707964
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Border4" unique_id=1025900735]
+shape = SubResource("RectangleShape2D_bxsvc")
+
+[node name="Mask" type="TextureRect" parent="Borders/Border4" unique_id=552199417]
+clip_children = 2
+offset_left = -128.0
+offset_top = -1920.0
+offset_right = 384.0
+offset_bottom = 1920.0
+texture = SubResource("GradientTexture2D_eg7ip")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Fog" type="TextureRect" parent="Borders/Border4/Mask" unique_id=1394885086]
+layout_mode = 0
+offset_right = 512.0
+offset_bottom = 3840.0
+texture = SubResource("NoiseTexture2D_6rqhj")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Border2" type="StaticBody2D" parent="Borders" unique_id=1406850456]
+position = Vector2(1816, 0)
+rotation = 3.1415927
+scale = Vector2(1, -1)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Border2" unique_id=1581109132]
+shape = SubResource("RectangleShape2D_lhyto")
+
+[node name="Mask" type="TextureRect" parent="Borders/Border2" unique_id=113526265]
+clip_children = 2
+offset_left = -128.0
+offset_top = -1088.0
+offset_right = 384.0
+offset_bottom = 1096.0
+texture = SubResource("GradientTexture2D_eg7ip")
+stretch_mode = 1
+
+[node name="Fog" type="TextureRect" parent="Borders/Border2/Mask" unique_id=51641915]
+layout_mode = 0
+offset_right = 512.0
+offset_bottom = 2176.0
+texture = SubResource("NoiseTexture2D_6rqhj")
+stretch_mode = 1
+
+[node name="Houses" type="Node2D" parent="." unique_id=432063076]
+unique_name_in_owner = true
+y_sort_enabled = true
+
+[node name="House" parent="Houses" unique_id=743035152 instance=ExtResource("3_0dvof")]
+position = Vector2(536, -400)
+
+[node name="House2" parent="Houses" unique_id=1336901131 instance=ExtResource("3_0dvof")]
+position = Vector2(-688, -392)

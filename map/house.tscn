@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://brgwbxcdboapv"]
+
+[ext_resource type="Script" uid="uid://darqvqh6towhd" path="res://map/house.gd" id="1_a73il"]
+[ext_resource type="Texture2D" uid="uid://dwvcmi5dbkfhl" path="res://icon.svg" id="2_m7pmm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a73il"]
+size = Vector2(192, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j5a6b"]
+size = Vector2(256, 128)
+
+[node name="House" type="Area2D" unique_id=743035152]
+scale = Vector2(2, 2)
+script = ExtResource("1_a73il")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1735440793]
+position = Vector2(0, 64)
+shape = SubResource("RectangleShape2D_a73il")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1813749220]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=15882281]
+shape = SubResource("RectangleShape2D_j5a6b")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1635725668]
+scale = Vector2(2, 1)
+texture = ExtResource("2_m7pmm")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1956148162]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(0, 32)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_m7pmm")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=2130970198]
+position = Vector2(0, 40)
+scale = Vector2(0.25, 0.4)
+texture = ExtResource("2_m7pmm")
+
+[node name="Door" type="Sprite2D" parent="." unique_id=699056726]
+unique_name_in_owner = true
+modulate = Color(0.44, 0, 0, 1)
+position = Vector2(-32, 32)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_m7pmm")
+offset = Vector2(64, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

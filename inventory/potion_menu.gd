@@ -1,4 +1,4 @@
-extends Node2D
+class_name PotionMenu extends Node2D
 
 @onready var lenses: Node2D = %Lenses
 @onready var potions: Node2D = %Potions
