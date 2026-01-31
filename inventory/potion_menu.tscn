@@ -72,8 +72,10 @@ metadata/_edit_group_ = true
 
 [node name="PointLight2D" type="PointLight2D" parent="Lenses" unique_id=1840654622]
 position = Vector2(-640, -128)
+skew = 0.17453292
 texture = SubResource("GradientTexture2D_432oq")
 
 [node name="PointLight2D2" type="PointLight2D" parent="Lenses" unique_id=1855812836]
 position = Vector2(0, -128)
+skew = -0.17453292
 texture = SubResource("GradientTexture2D_432oq")

@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://jotswtg1sxsa" path="res://map/player.tscn" id="1_f2kjn"]
 [ext_resource type="Script" uid="uid://5vcqb23b5itk" path="res://map/game_map.gd" id="1_lhyto"]
 [ext_resource type="PackedScene" uid="uid://brgwbxcdboapv" path="res://map/house.tscn" id="3_0dvof"]
+[ext_resource type="PackedScene" uid="uid://5u1b7r68tmhg" path="res://map/Torchparticle.tscn" id="4_eg7ip"]
 
 [sub_resource type="Gradient" id="Gradient_lhyto"]
 offsets = PackedFloat32Array(0.24698795, 0.5903614, 0.87349397, 1)
@@ -171,3 +172,6 @@ position = Vector2(536, -400)
 
 [node name="House2" parent="Houses" unique_id=1336901131 instance=ExtResource("3_0dvof")]
 position = Vector2(-688, -392)
+
+[node name="Torchparticle" parent="." unique_id=986599773 instance=ExtResource("4_eg7ip")]
+position = Vector2(184, -323)
