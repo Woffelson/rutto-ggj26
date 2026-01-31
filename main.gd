@@ -5,7 +5,7 @@ var inventory_path: PackedScene = preload("res://inventory/potion_menu.tscn")
 var game_map: Node2D
 var inventory: PotionMenu
 
-@onready var main_menu: MainMenu = preload("res://main_menu.tscn").instantiate()
+@onready var main_menu: MainMenu = preload("res://main_menu/main_menu.tscn").instantiate()
 
 var current_view: Node2D
 

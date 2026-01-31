@@ -43,5 +43,5 @@ func move(velocityxy: Vector2,horizontal_direction: float = 0.0,vertical_directi
 func camera_zoom(in_or_out: bool) -> void:
 	var tween: Tween = create_tween()
 	if in_or_out:
-		tween.tween_property(camera,"zoom",Vector2(2,2),1).set_trans(Tween.TRANS_ELASTIC)
-	else: tween.tween_property(camera,"zoom",Vector2(1,1),1).set_trans(Tween.TRANS_ELASTIC)
+		tween.tween_property(camera,"zoom",Vector2(2,2),1.5).set_trans(Tween.TRANS_SINE)
+	else: tween.tween_property(camera,"zoom",Vector2(1,1),1.5).set_trans(Tween.TRANS_SINE)

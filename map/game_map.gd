@@ -6,4 +6,4 @@ extends Node2D
 func _ready() -> void:
 	for house: House in houses.get_children():
 		house.moved_near.connect(player.camera_zoom)
-		print(house.moved_near.is_connected(player.camera_zoom))
+		#print(house.moved_near.is_connected(player.camera_zoom))
