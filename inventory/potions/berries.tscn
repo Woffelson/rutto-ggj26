@@ -26,8 +26,9 @@ offset_top = -16.0
 offset_right = 112.0
 offset_bottom = 125.0
 rotation = 0.26529005
-text = "adslfkjh asd asdiu ja
-asdlkj"
+theme_override_font_sizes/font_size = 20
+text = "Certain relief
+against hiccup"
 autowrap_mode = 2
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

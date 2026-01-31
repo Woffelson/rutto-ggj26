@@ -26,8 +26,8 @@ offset_top = 32.0
 offset_right = 72.0
 offset_bottom = 173.0
 theme_override_font_sizes/font_size = 16
-text = "adslfkjh asd asdiu ja
-asdlkjhal"
+text = "Tincture to cure
+cough and pleghm"
 autowrap_mode = 2
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

@@ -26,13 +26,16 @@ shape = SubResource("CapsuleShape2D_t0cku")
 
 [node name="Label" type="Label" parent="." unique_id=537456424]
 custom_minimum_size = Vector2(120, 0)
-offset_left = 96.0
-offset_top = -24.000006
-offset_right = 216.0
-offset_bottom = 116.99999
+offset_left = 106.99999
+offset_top = -15.999999
+offset_right = 227.0
+offset_bottom = 125.0
 rotation = 0.6614798
-text = "adslfkjh asd asdiu ja
-asdlkjhal"
+theme_override_font_sizes/font_size = 16
+text = "A soothing 
+trip to calm
+pain-ridden
+nerves"
 autowrap_mode = 2
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

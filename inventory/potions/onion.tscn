@@ -25,8 +25,8 @@ offset_left = -72.0
 offset_top = -16.0
 offset_right = 56.0
 offset_bottom = 125.0
-text = "adslfkjh asd asdiu ja
-asdlkjhal"
+theme_override_font_sizes/font_size = 20
+text = "For use against sniffles and flu"
 autowrap_mode = 2
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
