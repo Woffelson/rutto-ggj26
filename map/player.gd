@@ -11,6 +11,7 @@ var following = false #following mouse clicked position
 
 @onready var camera: Camera2D = %Camera
 @onready var animu_spr: AnimatedSprite2D = %Animu
+@onready var tween: Tween = get_tree().create_tween().set_loops()
 
 func _physics_process(delta: float) -> void:
 	hor_ctrl = Input.get_axis("key_left","key_right")
@@ -28,8 +29,15 @@ func _physics_process(delta: float) -> void:
 		hor_ctrl = target_position.x - position.x
 		ver_ctrl = target_position.y - position.y
 	velocity = move(velocity * (delta * 60),hor_ctrl,ver_ctrl)
-	if velocity.length() > 0: animu_spr.play("walk")
-	else: animu_spr.play("idle")
+	if velocity.length() > 0:
+		animu_spr.play("walk")
+		tween.pause()
+		animu_spr.scale = Vector2(0.2,0.2)
+	else:
+		animu_spr.play("idle")
+		tween.play()
+		tween.tween_property(animu_spr,"scale",Vector2(0.21,0.19),1)
+		tween.tween_property(animu_spr,"scale",Vector2(0.19,0.21),1)
 	move_and_slide()
 
 func _input(_event: InputEvent) -> void:

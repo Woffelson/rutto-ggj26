@@ -6,13 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://brgwbxcdboapv" path="res://map/house.tscn" id="3_0dvof"]
 [ext_resource type="Texture2D" uid="uid://douprhrw4j3ub" path="res://map/gfx/tausta_maa.png" id="3_6rqhj"]
 [ext_resource type="Texture2D" uid="uid://pymwc2dx4uq0" path="res://map/gfx/puuu.webp" id="5_ly7yr"]
-[ext_resource type="PackedScene" path="res://map/house_b.tscn" id="6_dv5al"]
+[ext_resource type="PackedScene" uid="uid://5sx8orbtchj1" path="res://map/house_b.tscn" id="6_dv5al"]
 [ext_resource type="Texture2D" uid="uid://dt1wmos55obfv" path="res://map/gfx/kyltti.webp" id="6_j51yq"]
 [ext_resource type="Texture2D" uid="uid://d30q3mjtfipc2" path="res://map/gfx/talo1.png" id="6_spk38"]
-[ext_resource type="PackedScene" path="res://map/house_c.tscn" id="7_ly7yr"]
-[ext_resource type="PackedScene" uid="uid://by4s6vlqkqmrw" path="res://map/gfx/Flyparticle.tscn" id="7_naws2"]
-[ext_resource type="PackedScene" path="res://map/house_d.tscn" id="8_j51yq"]
-[ext_resource type="PackedScene" path="res://map/house_e.tscn" id="9_spk38"]
+[ext_resource type="PackedScene" uid="uid://bjhawab5wlupw" path="res://map/house_c.tscn" id="7_ly7yr"]
+[ext_resource type="PackedScene" path="res://map/gfx/Flyparticle.tscn" id="7_naws2"]
+[ext_resource type="PackedScene" uid="uid://li0npwjf2677" path="res://map/house_d.tscn" id="8_j51yq"]
+[ext_resource type="PackedScene" uid="uid://yr8ygc5d1u2e" path="res://map/house_e.tscn" id="9_spk38"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lhyto"]
 size = Vector2(32, 2160)
@@ -73,9 +73,9 @@ z_index = -1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -1904.0
+offset_left = -1920.0
 offset_top = 16.0
-offset_right = 5776.0
+offset_right = 5760.0
 offset_bottom = 1096.0
 grow_horizontal = 2
 texture = ExtResource("3_6rqhj")
@@ -242,7 +242,7 @@ texture = ExtResource("5_ly7yr")
 [node name="Borders" type="Node2D" parent="CanvasLayer" unique_id=1066617043]
 
 [node name="Border" type="StaticBody2D" parent="CanvasLayer/Borders" unique_id=726616580]
-position = Vector2(-1835, 0)
+position = Vector2(-1792, 0)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Borders/Border" unique_id=240014488]

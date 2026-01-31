@@ -1,12 +1,19 @@
 [gd_scene format=3 uid="uid://jotswtg1sxsa"]
 
 [ext_resource type="Script" uid="uid://cuoo0p635ke2r" path="res://map/player.gd" id="1_7sg71"]
-[ext_resource type="Texture2D" uid="uid://dwvcmi5dbkfhl" path="res://icon.svg" id="2_224g0"]
 [ext_resource type="Texture2D" uid="uid://b1jf5iu4wxrak" path="res://new_gradient_texture_2d.tres" id="3_224g0"]
 [ext_resource type="Texture2D" uid="uid://ttfue7e8ll6o" path="res://map/gfx/hero_sprite1.png" id="4_67m4m"]
 [ext_resource type="Texture2D" uid="uid://bth57if3jxopx" path="res://map/gfx/hero_sprite2.png" id="5_8as5d"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s8ynm"]
+[sub_resource type="Gradient" id="Gradient_q1yb2"]
+offsets = PackedFloat32Array(0.06626506, 0.59638554)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_67m4m"]
+gradient = SubResource("Gradient_q1yb2")
+width = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cx36e"]
 animations = [{
@@ -30,15 +37,15 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_8as5d"]
+radius = 32.0
+
 [node name="Player" type="CharacterBody2D" unique_id=1213860621]
 script = ExtResource("1_7sg71")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1458478849]
-shape = SubResource("CapsuleShape2D_s8ynm")
-
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1594498730]
-visible = false
-texture = ExtResource("2_224g0")
+position = Vector2(0, 48)
+texture = SubResource("GradientTexture2D_67m4m")
 
 [node name="Camera" type="Camera2D" parent="." unique_id=2112543848]
 unique_name_in_owner = true
@@ -58,5 +65,8 @@ unique_name_in_owner = true
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_cx36e")
 animation = &"idle"
-offset = Vector2(0, -128)
+offset = Vector2(0, -256)
 flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1458478849]
+shape = SubResource("CircleShape2D_8as5d")
