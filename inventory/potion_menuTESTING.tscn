@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://cpkd2jbg245an"]
+
+[ext_resource type="Script" uid="uid://2qlvqtx81g60" path="res://inventory/potion_menu.gd" id="1_0w5q8"]
+[ext_resource type="Texture2D" uid="uid://ctrqp2hptyh0l" path="res://inventory/gfx/salkku.png" id="2_p34xh"]
+[ext_resource type="Shader" uid="uid://ccsq258bkh1vl" path="res://shaders/distortion0.gdshader" id="3_qu63l"]
+[ext_resource type="Texture2D" uid="uid://b6qvd6fsqdfjp" path="res://inventory/gfx/LensMaskv3.png" id="4_6n50j"]
+[ext_resource type="AudioStream" uid="uid://dhjgi7t7nnub8" path="res://inventory/sfx/dr_ysk_0.wav" id="5_gfgd0"]
+[ext_resource type="AudioStream" uid="uid://de2exb3ev3idt" path="res://inventory/sfx/dr_ysk_1.wav" id="6_0yxub"]
+[ext_resource type="AudioStream" uid="uid://brejvgybrpolr" path="res://inventory/sfx/dr_ysk_2.wav" id="7_l84ym"]
+[ext_resource type="AudioStream" uid="uid://rm6f7iaiq6hu" path="res://inventory/sfx/dr_ysk_3.wav" id="8_xxaai"]
+[ext_resource type="AudioStream" uid="uid://cead1tpm63ugh" path="res://inventory/sfx/dr_ysk_4.wav" id="9_ehyap"]
+
+[sub_resource type="Gradient" id="Gradient_8puv6"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_la7sg"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_m6yvu"]
+noise = SubResource("FastNoiseLite_la7sg")
+color_ramp = SubResource("Gradient_8puv6")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ww60m"]
+shader = ExtResource("3_qu63l")
+shader_parameter/render_noise = false
+shader_parameter/move_top = true
+shader_parameter/distortion_force = Vector2(50, -25)
+shader_parameter/time_scale = 0.1
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_m6yvu")
+shader_parameter/noise_scale = 0.002
+shader_parameter/global_transform = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ylx0i"]
+streams_count = 5
+stream_0/stream = ExtResource("5_gfgd0")
+stream_1/stream = ExtResource("6_0yxub")
+stream_2/stream = ExtResource("7_l84ym")
+stream_3/stream = ExtResource("8_xxaai")
+stream_4/stream = ExtResource("9_ehyap")
+
+[node name="PotionMenu" type="Node2D" unique_id=1506068141]
+script = ExtResource("1_0w5q8")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=256363939]
+offset_right = 1920.0
+offset_bottom = 1088.0
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1628193989]
+offset_top = -32.0
+offset_right = 1928.0
+offset_bottom = 1048.0
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 64
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer" unique_id=1967296499]
+layout_mode = 2
+texture = ExtResource("2_p34xh")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=416976150]
+color = Color(0, 0, 0, 1)
+
+[node name="Potions" type="Node2D" parent="." unique_id=379194781]
+unique_name_in_owner = true
+
+[node name="distortion" type="ColorRect" parent="." unique_id=1169812036]
+material = SubResource("ShaderMaterial_ww60m")
+offset_right = 1920.0
+offset_bottom = 1088.0
+mouse_filter = 1
+
+[node name="Lenses" type="Node2D" parent="." unique_id=592762154]
+unique_name_in_owner = true
+position = Vector2(1032, 456)
+metadata/_edit_group_ = true
+
+[node name="PointLight2D" type="PointLight2D" parent="Lenses" unique_id=1840654622]
+position = Vector2(-640, -128)
+scale = Vector2(-1, -1)
+skew = 0.17453292
+color = Color(0.9999997, 0.8738909, 0.5626841, 1)
+energy = 1.5
+texture = ExtResource("4_6n50j")
+
+[node name="PointLight2D2" type="PointLight2D" parent="Lenses" unique_id=1855812836]
+position = Vector2(0, -128)
+skew = -0.17453292
+color = Color(1, 0.8745098, 0.56078434, 1)
+energy = 1.5
+texture = ExtResource("4_6n50j")
+
+[node name="Cough" type="AudioStreamPlayer" parent="." unique_id=243592672]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_ylx0i")
+bus = &"drSFX"
+
+[node name="Timer" type="Timer" parent="." unique_id=904419980]
+unique_name_in_owner = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

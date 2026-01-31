@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://by4s6vlqkqmrw"]
+
+[ext_resource type="Texture2D" uid="uid://cw2pcgt7b7fya" path="res://map/gfx/fly.webp" id="1_32h2s"]
+[ext_resource type="Texture2D" uid="uid://cms1o8s4e18vk" path="res://map/gfx/fly2.webp" id="2_ei8r6"]
+
+[sub_resource type="Curve" id="Curve_prl1l"]
+_data = [Vector2(0, 0.9887641), 0.0, 0.0, 0, 0, Vector2(0.49783546, 1), 0.0, 0.0, 0, 0, Vector2(0.99999994, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_2tnmh"]
+curve = SubResource("Curve_prl1l")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nsj71"]
+lifetime_randomness = 0.14
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(4, 1, 4)
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 0.0
+emission_ring_radius = 95.24
+emission_ring_inner_radius = 50.0
+emission_ring_cone_angle = 90.0
+angle_min = 1.0728835e-05
+angle_max = 1.0728835e-05
+initial_velocity_min = 89.22
+initial_velocity_max = 126.39
+angular_velocity_min = -1.6093254e-05
+angular_velocity_max = -1.6093254e-05
+orbit_velocity_min = 0.2000001
+orbit_velocity_max = 0.40000013
+radial_velocity_min = -2.2351742e-05
+radial_velocity_max = -2.2351742e-05
+gravity = Vector3(0, 0, 0)
+tangential_accel_min = -2.2351742e-06
+tangential_accel_max = -2.2351742e-06
+scale_min = 0.5
+scale_curve = SubResource("CurveTexture_2tnmh")
+turbulence_enabled = true
+turbulence_noise_strength = 3.12
+turbulence_noise_scale = 2.0
+turbulence_noise_speed_random = 0.68
+turbulence_initial_displacement_min = -12.099998
+turbulence_initial_displacement_max = 11.400002
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_brgkj"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(4, 1, 4)
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 0.0
+emission_ring_radius = 95.24
+emission_ring_inner_radius = 50.0
+emission_ring_cone_angle = 90.0
+angle_min = 1.0728835e-05
+angle_max = 1.0728835e-05
+initial_velocity_min = 89.22
+initial_velocity_max = 126.39
+angular_velocity_min = -1.6093254e-05
+angular_velocity_max = -1.6093254e-05
+orbit_velocity_min = -0.39999992
+orbit_velocity_max = -0.19999991
+radial_velocity_min = -2.2351742e-05
+radial_velocity_max = -2.2351742e-05
+gravity = Vector3(0, 0, 0)
+tangential_accel_min = -2.2351742e-06
+tangential_accel_max = -2.2351742e-06
+scale_min = 0.5
+scale_curve = SubResource("CurveTexture_2tnmh")
+turbulence_enabled = true
+turbulence_noise_strength = 4.79
+turbulence_noise_scale = 2.0
+turbulence_noise_speed = Vector3(1, 1, 1)
+turbulence_noise_speed_random = 0.44
+turbulence_influence_min = 0.171
+turbulence_influence_max = 0.3
+turbulence_initial_displacement_min = 1.490116e-06
+turbulence_initial_displacement_max = 11.400002
+
+[node name="Flyparticle" type="Node2D" unique_id=438309821]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=2115114224]
+amount = 3
+texture = ExtResource("1_32h2s")
+lifetime = 2.1599999999999997
+process_material = SubResource("ParticleProcessMaterial_nsj71")
+
+[node name="GPUParticles2DOpposite" type="GPUParticles2D" parent="." unique_id=1217838432]
+amount = 3
+texture = ExtResource("2_ei8r6")
+lifetime = 2.1599999999999997
+process_material = SubResource("ParticleProcessMaterial_brgkj")
