@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cw2pcgt7b7fya" path="res://map/gfx/fly.webp" id="1_32h2s"]
 [ext_resource type="Texture2D" uid="uid://cms1o8s4e18vk" path="res://map/gfx/fly2.webp" id="2_ei8r6"]
+[ext_resource type="AudioStream" uid="uid://bm5vko36bhg7a" path="res://map/sfx/insect_bee_fly_buzz-103494.mp3" id="3_ei8r6"]
 
 [sub_resource type="Curve" id="Curve_prl1l"]
 _data = [Vector2(0, 0.9887641), 0.0, 0.0, 0, 0, Vector2(0.49783546, 1), 0.0, 0.0, 0, 0, Vector2(0.99999994, 0), 0.0, 0.0, 0, 0]
@@ -89,3 +90,10 @@ amount = 3
 texture = ExtResource("2_ei8r6")
 lifetime = 2.1599999999999997
 process_material = SubResource("ParticleProcessMaterial_brgkj")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1720810147]
+stream = ExtResource("3_ei8r6")
+volume_db = -3.0
+autoplay = true
+max_distance = 1000.0
+parameters/looping = true

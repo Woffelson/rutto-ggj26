@@ -5,10 +5,14 @@
 [ext_resource type="Texture2D" uid="uid://dqfs4x664vmu0" path="res://map/gfx/tausta_taivas.png" id="2_idgu5"]
 [ext_resource type="PackedScene" uid="uid://brgwbxcdboapv" path="res://map/house.tscn" id="3_0dvof"]
 [ext_resource type="Texture2D" uid="uid://douprhrw4j3ub" path="res://map/gfx/tausta_maa.png" id="3_6rqhj"]
-[ext_resource type="PackedScene" uid="uid://5sx8orbtchj1" path="res://map/house_b.tscn" id="6_dv5al"]
-[ext_resource type="PackedScene" uid="uid://bjhawab5wlupw" path="res://map/house_c.tscn" id="7_ly7yr"]
-[ext_resource type="PackedScene" uid="uid://li0npwjf2677" path="res://map/house_d.tscn" id="8_j51yq"]
-[ext_resource type="PackedScene" uid="uid://yr8ygc5d1u2e" path="res://map/house_e.tscn" id="9_spk38"]
+[ext_resource type="Texture2D" uid="uid://pymwc2dx4uq0" path="res://map/gfx/puuu.webp" id="5_ly7yr"]
+[ext_resource type="PackedScene" path="res://map/house_b.tscn" id="6_dv5al"]
+[ext_resource type="Texture2D" uid="uid://dt1wmos55obfv" path="res://map/gfx/kyltti.webp" id="6_j51yq"]
+[ext_resource type="Texture2D" uid="uid://d30q3mjtfipc2" path="res://map/gfx/talo1.png" id="6_spk38"]
+[ext_resource type="PackedScene" path="res://map/house_c.tscn" id="7_ly7yr"]
+[ext_resource type="PackedScene" uid="uid://by4s6vlqkqmrw" path="res://map/gfx/Flyparticle.tscn" id="7_naws2"]
+[ext_resource type="PackedScene" path="res://map/house_d.tscn" id="8_j51yq"]
+[ext_resource type="PackedScene" path="res://map/house_e.tscn" id="9_spk38"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lhyto"]
 size = Vector2(32, 2160)
@@ -21,6 +25,7 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
 gradient = SubResource("Gradient_idgu5")
 width = 512
 height = 512
+fill = 1
 fill_from = Vector2(0, 0.47826087)
 
 [sub_resource type="Gradient" id="Gradient_s8ynm"]
@@ -81,6 +86,87 @@ stretch_mode = 2
 unique_name_in_owner = true
 position = Vector2(-600, 296)
 
+[node name="TreeBackground3" type="Sprite2D" parent="." unique_id=2110135296]
+modulate = Color(1, 1, 1, 0.7058824)
+z_index = -2
+position = Vector2(445, -544)
+scale = Vector2(1.8185811, 1.8185809)
+texture = ExtResource("5_ly7yr")
+
+[node name="TreeBackground6" type="Sprite2D" parent="." unique_id=111885263]
+modulate = Color(1, 1, 1, 0.7058824)
+z_index = -2
+position = Vector2(-301, -533)
+scale = Vector2(1.8185811, 1.8185809)
+texture = ExtResource("5_ly7yr")
+
+[node name="TreeBackground7" type="Sprite2D" parent="." unique_id=1818755050]
+modulate = Color(1, 1, 1, 0.7058824)
+z_index = -2
+position = Vector2(-1403, -578)
+scale = Vector2(1.8185811, 1.8185809)
+texture = ExtResource("5_ly7yr")
+
+[node name="TreeBackground4" type="Sprite2D" parent="." unique_id=1176857557]
+modulate = Color(1, 1, 1, 0.7058824)
+z_index = -2
+position = Vector2(2319, -469)
+scale = Vector2(1.9969594, 1.9969594)
+texture = ExtResource("5_ly7yr")
+
+[node name="TreeBackground5" type="Sprite2D" parent="." unique_id=174797612]
+modulate = Color(1, 1, 1, 0.7058824)
+z_index = -2
+position = Vector2(1400, -656.00006)
+scale = Vector2(2.6646957, 2.6646957)
+texture = ExtResource("5_ly7yr")
+
+[node name="BackgroundGrass" type="Sprite2D" parent="." unique_id=1706069865]
+z_index = -2
+position = Vector2(1493.9998, 471.99988)
+rotation = 0.62957203
+scale = Vector2(0.6202699, 0.6202697)
+texture = ExtResource("6_spk38")
+
+[node name="BackgroundGrass2" type="Sprite2D" parent="." unique_id=2068038786]
+z_index = -2
+position = Vector2(1650, 982)
+rotation = 2.2161489
+scale = Vector2(1, -1)
+texture = ExtResource("6_spk38")
+
+[node name="BackgroundGrass3" type="Sprite2D" parent="." unique_id=1525816260]
+z_index = -2
+position = Vector2(-1107, 972.0001)
+rotation = 2.2161489
+scale = Vector2(1, -1)
+texture = ExtResource("6_spk38")
+
+[node name="TreeMiddle2" type="Sprite2D" parent="." unique_id=368160182]
+position = Vector2(-576, -204)
+scale = Vector2(0.7567569, 0.75675684)
+texture = ExtResource("5_ly7yr")
+
+[node name="TreeMiddle3" type="Sprite2D" parent="." unique_id=1377788649]
+position = Vector2(2058, -141)
+scale = Vector2(0.6202699, 0.6202697)
+texture = ExtResource("5_ly7yr")
+
+[node name="TreeMiddle" type="Sprite2D" parent="." unique_id=187018606]
+position = Vector2(-1640, -246)
+scale = Vector2(1.0175676, 1.0175676)
+texture = ExtResource("5_ly7yr")
+
+[node name="Flyparticle" parent="." unique_id=438309821 instance=ExtResource("7_naws2")]
+position = Vector2(253, 79.00001)
+rotation = 2.2161489
+scale = Vector2(1, -1)
+
+[node name="Sign" type="Sprite2D" parent="." unique_id=1712905737]
+position = Vector2(-448, 11)
+scale = Vector2(1.3288288, 1.3309859)
+texture = ExtResource("6_j51yq")
+
 [node name="Houses" type="Node2D" parent="." unique_id=432063076]
 unique_name_in_owner = true
 y_sort_enabled = true
@@ -103,10 +189,60 @@ position = Vector2(2448, -88)
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2013669849]
 follow_viewport_enabled = true
 
+[node name="TreeForeground2" type="Sprite2D" parent="CanvasLayer" unique_id=1347154678]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-240, 684)
+scale = Vector2(0.95472986, 0.95472974)
+texture = ExtResource("5_ly7yr")
+
+[node name="TreeForeground" type="Sprite2D" parent="CanvasLayer" unique_id=1525840699]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-1474, 584.99994)
+scale = Vector2(1.2418921, 1.241892)
+texture = ExtResource("5_ly7yr")
+
+[node name="TreeForeground3" type="Sprite2D" parent="CanvasLayer" unique_id=1417230268]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(877, 641)
+scale = Vector2(-1.1331922, 1.171621)
+texture = ExtResource("5_ly7yr")
+
+[node name="TreeForeground8" type="Sprite2D" parent="CanvasLayer" unique_id=2072596648]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(2291, 758)
+scale = Vector2(-1.4377817, 1.171621)
+texture = ExtResource("5_ly7yr")
+
+[node name="TreeForeground7" type="Sprite2D" parent="CanvasLayer" unique_id=60550461]
+modulate = Color(0.11, 0.11, 0.11, 1)
+position = Vector2(-911.9999, 675)
+rotation = -0.16929694
+scale = Vector2(-1.1331922, 1.171621)
+texture = ExtResource("5_ly7yr")
+
+[node name="TreeForeground5" type="Sprite2D" parent="CanvasLayer" unique_id=2096663961]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(3015, 607.00006)
+scale = Vector2(-1.6519401, 1.7609609)
+texture = ExtResource("5_ly7yr")
+
+[node name="TreeForeground4" type="Sprite2D" parent="CanvasLayer" unique_id=811870304]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(250, 497)
+scale = Vector2(1.358108, 1.4691079)
+texture = ExtResource("5_ly7yr")
+
+[node name="TreeForeground6" type="Sprite2D" parent="CanvasLayer" unique_id=920070011]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(1427, 733.0001)
+rotation = 0.0837758
+scale = Vector2(1.5766343, 1.7041038)
+texture = ExtResource("5_ly7yr")
+
 [node name="Borders" type="Node2D" parent="CanvasLayer" unique_id=1066617043]
 
 [node name="Border" type="StaticBody2D" parent="CanvasLayer/Borders" unique_id=726616580]
-position = Vector2(-1816, 0)
+position = Vector2(-1835, 0)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Borders/Border" unique_id=240014488]
