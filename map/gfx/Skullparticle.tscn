@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://ylf5bco8oyi3"]
+
+[ext_resource type="Texture2D" uid="uid://dgt50aeg5q133" path="res://map/gfx/Skullparticle.png" id="1_qkxcv"]
+
+[sub_resource type="Curve" id="Curve_l3kgj"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5281385, 0.8876405), -0.33275706, -0.33275706, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_rw514"]
+curve = SubResource("Curve_l3kgj")
+
+[sub_resource type="Curve" id="Curve_gushn"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_f8jc4"]
+curve = SubResource("Curve_gushn")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_b0pjr"]
+lifetime_randomness = 0.33
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 0)
+emission_ring_height = 1.0
+emission_ring_radius = 1.0
+emission_ring_inner_radius = 0.5
+emission_ring_cone_angle = 90.0
+angle_min = -29.99999
+angle_max = 30.000011
+direction = Vector3(0, 0, 0)
+flatness = 1.0
+radial_velocity_min = -2.2351742e-05
+radial_velocity_max = -2.2351742e-05
+gravity = Vector3(0, -100, 0)
+radial_accel_min = 39.999996
+radial_accel_max = 39.999996
+scale_max = 4.0
+scale_curve = SubResource("CurveTexture_f8jc4")
+color = Color(0, 0.8090905, 0.2473374, 1)
+alpha_curve = SubResource("CurveTexture_rw514")
+turbulence_noise_strength = 8.0
+turbulence_noise_scale = 2.0
+turbulence_noise_speed = Vector3(0, 5, 0)
+
+[node name="Skullparticle" type="Node2D" unique_id=1569889591]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1451058968]
+emitting = false
+texture = ExtResource("1_qkxcv")
+lifetime = 2.0
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_b0pjr")
