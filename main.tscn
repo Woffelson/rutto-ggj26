@@ -1,6 +1,13 @@
 [gd_scene format=3 uid="uid://dn5rxxk75q7js"]
 
 [ext_resource type="Script" uid="uid://dvtijkcfyqr6o" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="AudioStream" uid="uid://dk3c14184roaj" path="res://music/2026.mp3" id="2_0xm2m"]
 
 [node name="Main" type="Node" unique_id=207028472]
 script = ExtResource("1_ig7tw")
+
+[node name="BGMusic" type="AudioStreamPlayer" parent="." unique_id=1292940829]
+stream = ExtResource("2_0xm2m")
+autoplay = true
+bus = &"Music"
+parameters/looping = false
