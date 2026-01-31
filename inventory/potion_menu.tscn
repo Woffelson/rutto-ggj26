@@ -3,6 +3,11 @@
 [ext_resource type="Script" uid="uid://2qlvqtx81g60" path="res://inventory/potion_menu.gd" id="1_cy0pm"]
 [ext_resource type="Shader" uid="uid://ccsq258bkh1vl" path="res://shaders/distortion0.gdshader" id="2_84cd3"]
 [ext_resource type="PackedScene" uid="uid://u8lfpsvw5nj1" path="res://inventory/potion.tscn" id="3_xysyh"]
+[ext_resource type="AudioStream" uid="uid://dhjgi7t7nnub8" path="res://inventory/sfx/dr_ysk_0.wav" id="4_1cy6f"]
+[ext_resource type="AudioStream" uid="uid://de2exb3ev3idt" path="res://inventory/sfx/dr_ysk_1.wav" id="5_7lx82"]
+[ext_resource type="AudioStream" uid="uid://brejvgybrpolr" path="res://inventory/sfx/dr_ysk_2.wav" id="6_6eii1"]
+[ext_resource type="AudioStream" uid="uid://rm6f7iaiq6hu" path="res://inventory/sfx/dr_ysk_3.wav" id="7_6u0wj"]
+[ext_resource type="AudioStream" uid="uid://cead1tpm63ugh" path="res://inventory/sfx/dr_ysk_4.wav" id="8_xvgry"]
 
 [sub_resource type="Gradient" id="Gradient_8puv6"]
 
@@ -33,6 +38,14 @@ width = 512
 height = 512
 fill = 1
 fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ylx0i"]
+streams_count = 5
+stream_0/stream = ExtResource("4_1cy6f")
+stream_1/stream = ExtResource("5_7lx82")
+stream_2/stream = ExtResource("6_6eii1")
+stream_3/stream = ExtResource("7_6u0wj")
+stream_4/stream = ExtResource("8_xvgry")
 
 [node name="PotionMenu" type="Node2D" unique_id=1506068141]
 script = ExtResource("1_cy0pm")
@@ -79,3 +92,14 @@ texture = SubResource("GradientTexture2D_432oq")
 position = Vector2(0, -128)
 skew = -0.17453292
 texture = SubResource("GradientTexture2D_432oq")
+
+[node name="Cough" type="AudioStreamPlayer" parent="." unique_id=243592672]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_ylx0i")
+bus = &"SFX"
+
+[node name="Timer" type="Timer" parent="." unique_id=904419980]
+unique_name_in_owner = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

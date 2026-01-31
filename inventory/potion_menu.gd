@@ -2,8 +2,11 @@ class_name PotionMenu extends Node2D
 
 @onready var lenses: Node2D = %Lenses
 @onready var potions: Node2D = %Potions
+@onready var cough: AudioStreamPlayer = %Cough
+@onready var timer: Timer = %Timer
 
 func _ready() -> void:
+	timer.wait_time = randi_range(4,8)
 	for potion: Potion in potions.get_children():
 		potion.selected.connect(get_potion)
 
@@ -15,3 +18,7 @@ func get_potion(current_potion: Potion) -> void:
 		potion.show()
 	Global.selected_potion = current_potion
 	current_potion.hide()
+
+func _on_timer_timeout() -> void:
+	cough.play()
+	timer.wait_time = randi_range(4,8)
