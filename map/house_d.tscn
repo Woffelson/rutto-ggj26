@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://darqvqh6towhd" path="res://map/house.gd" id="1_ukivu"]
 [ext_resource type="Texture2D" uid="uid://d2ogbhb4hpt55" path="res://map/gfx/talo3.png" id="2_ukivu"]
-[ext_resource type="Texture2D" uid="uid://b0yka7gju2t0w" path="res://map/gfx/bald.png" id="3_6x4y3"]
+[ext_resource type="Texture2D" uid="uid://dnsuytollaiai" path="res://map/gfx/mummo.png" id="3_ukivu"]
 [ext_resource type="Texture2D" uid="uid://d01ak2xr5wuft" path="res://map/gfx/talo1_ovi.png" id="4_c40mm"]
 [ext_resource type="PackedScene" path="res://map/Torchparticle.tscn" id="5_ds3en"]
 
@@ -32,10 +32,13 @@ position = Vector2(-84, -60)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_ukivu")
 
-[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=2130970198]
-position = Vector2(-8, 32)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_6x4y3")
+[node name="Sairas" type="Sprite2D" parent="." unique_id=2130970198]
+unique_name_in_owner = true
+visible = false
+position = Vector2(-16, 58)
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("3_ukivu")
+offset = Vector2(0, -512)
 
 [node name="Door" type="Sprite2D" parent="." unique_id=699056726]
 unique_name_in_owner = true

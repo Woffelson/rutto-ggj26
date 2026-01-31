@@ -34,8 +34,8 @@ func _physics_process(delta: float) -> void:
 		tween.pause()
 		animu_spr.scale = Vector2(0.2,0.2)
 	else:
+		tween.stop()
 		animu_spr.play("idle")
-		tween.play()
 		tween.tween_property(animu_spr,"scale",Vector2(0.21,0.19),1)
 		tween.tween_property(animu_spr,"scale",Vector2(0.19,0.21),1)
 	move_and_slide()

@@ -32,10 +32,13 @@ position = Vector2(91.99999, -31.999998)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_0hmyt")
 
-[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=2130970198]
-position = Vector2(-8, 32)
+[node name="Sairas" type="Sprite2D" parent="." unique_id=2130970198]
+unique_name_in_owner = true
+visible = false
+position = Vector2(-8, 64)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_oq2v2")
+offset = Vector2(0, -64)
 
 [node name="Door" type="Sprite2D" parent="." unique_id=699056726]
 unique_name_in_owner = true

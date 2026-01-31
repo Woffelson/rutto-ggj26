@@ -6,6 +6,7 @@ var game_map: Node2D
 var inventory: PotionMenu
 
 @onready var main_menu: MainMenu = preload("res://main_menu/main_menu.tscn").instantiate()
+@onready var hud: CanvasLayer = preload("res://hud.tscn").instantiate()
 
 var current_view: Node2D
 
@@ -30,6 +31,7 @@ func _input(_event: InputEvent) -> void: #TODO tmp solutions, needs GUI?
 func start_game() -> void:
 	if main_menu.is_inside_tree(): remove_child(main_menu)
 	add_child(game_map)
+	add_child(hud)
 	current_view = game_map
 
 func switch_view(new_view: Node2D) -> void:
@@ -41,6 +43,7 @@ func switch_view(new_view: Node2D) -> void:
 func back_to_main_menu() -> void:
 	game_map.queue_free()
 	inventory.queue_free()
+	remove_child(hud)
 	reset_scenes()
 	add_child(main_menu)
 	

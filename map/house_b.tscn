@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://darqvqh6towhd" path="res://map/house.gd" id="1_o7a0y"]
 [ext_resource type="Texture2D" uid="uid://w5rbmpmxtq5i" path="res://map/gfx/casa de kasa.png" id="2_o7a0y"]
-[ext_resource type="Texture2D" uid="uid://b0yka7gju2t0w" path="res://map/gfx/bald.png" id="3_pmchy"]
+[ext_resource type="Texture2D" uid="uid://bu4cnf2ouxgwp" path="res://map/gfx/tyyppi.png" id="3_o7a0y"]
 [ext_resource type="Texture2D" uid="uid://d01ak2xr5wuft" path="res://map/gfx/talo1_ovi.png" id="4_gewms"]
 [ext_resource type="PackedScene" path="res://map/Torchparticle.tscn" id="5_yago1"]
 
@@ -32,10 +32,13 @@ position = Vector2(-19.999992, -39.999996)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_o7a0y")
 
-[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=2130970198]
-position = Vector2(-8, 32)
+[node name="Sairas" type="Sprite2D" parent="." unique_id=2130970198]
+unique_name_in_owner = true
+visible = false
+position = Vector2(-8, 64)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_pmchy")
+texture = ExtResource("3_o7a0y")
+offset = Vector2(0, -64)
 
 [node name="Door" type="Sprite2D" parent="." unique_id=699056726]
 unique_name_in_owner = true

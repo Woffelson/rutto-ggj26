@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://c2yfxlvig6k7g"]
+
+[ext_resource type="Texture2D" uid="uid://dwvcmi5dbkfhl" path="res://icon.svg" id="1_37p78"]
+
+[sub_resource type="Gradient" id="Gradient_1bvp3"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lquwl"]
+gradient = SubResource("Gradient_1bvp3")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_7mycd"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_272bh"]
+noise = SubResource("FastNoiseLite_7mycd")
+
+[node name="HUD" type="CanvasLayer" unique_id=153219777]
+visible = false
+
+[node name="Control" type="Control" parent="." unique_id=1747034475]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=83238942]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer" unique_id=1667503474]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer/HBoxContainer" unique_id=97591574]
+layout_mode = 2
+texture = ExtResource("1_37p78")
+expand_mode = 2
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Control/MarginContainer/HBoxContainer" unique_id=1281086134]
+layout_mode = 2
+size_flags_horizontal = 3
+nine_patch_stretch = true
+texture_under = SubResource("GradientTexture2D_lquwl")
+texture_over = SubResource("NoiseTexture2D_272bh")
