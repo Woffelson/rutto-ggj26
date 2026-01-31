@@ -5,19 +5,22 @@
 [ext_resource type="Texture2D" uid="uid://dqfs4x664vmu0" path="res://map/gfx/tausta_taivas.png" id="2_idgu5"]
 [ext_resource type="PackedScene" uid="uid://brgwbxcdboapv" path="res://map/house.tscn" id="3_0dvof"]
 [ext_resource type="Texture2D" uid="uid://douprhrw4j3ub" path="res://map/gfx/tausta_maa.png" id="3_6rqhj"]
+[ext_resource type="PackedScene" uid="uid://5sx8orbtchj1" path="res://map/house_b.tscn" id="6_dv5al"]
+[ext_resource type="PackedScene" uid="uid://bjhawab5wlupw" path="res://map/house_c.tscn" id="7_ly7yr"]
+[ext_resource type="PackedScene" uid="uid://li0npwjf2677" path="res://map/house_d.tscn" id="8_j51yq"]
+[ext_resource type="PackedScene" uid="uid://yr8ygc5d1u2e" path="res://map/house_e.tscn" id="9_spk38"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lhyto"]
 size = Vector2(32, 2160)
 
 [sub_resource type="Gradient" id="Gradient_idgu5"]
-offsets = PackedFloat32Array(0.05421687, 1)
+offsets = PackedFloat32Array(0.060240965, 0.6927711)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_6rqhj"]
 gradient = SubResource("Gradient_idgu5")
 width = 512
 height = 512
-fill = 1
 fill_from = Vector2(0, 0.47826087)
 
 [sub_resource type="Gradient" id="Gradient_s8ynm"]
@@ -76,17 +79,26 @@ stretch_mode = 2
 
 [node name="Player" parent="." unique_id=1213860621 instance=ExtResource("1_f2kjn")]
 unique_name_in_owner = true
-position = Vector2(8, 96)
+position = Vector2(-600, 296)
 
 [node name="Houses" type="Node2D" parent="." unique_id=432063076]
 unique_name_in_owner = true
 y_sort_enabled = true
 
 [node name="House" parent="Houses" unique_id=743035152 instance=ExtResource("3_0dvof")]
-position = Vector2(536, -104)
+position = Vector2(-184, -106)
 
-[node name="House2" parent="Houses" unique_id=1336901131 instance=ExtResource("3_0dvof")]
-position = Vector2(-704, -104)
+[node name="House2" parent="Houses" unique_id=842094832 instance=ExtResource("6_dv5al")]
+position = Vector2(-1104, -112)
+
+[node name="House3" parent="Houses" unique_id=1653206575 instance=ExtResource("7_ly7yr")]
+position = Vector2(832, -104)
+
+[node name="House4" parent="Houses" unique_id=2051215858 instance=ExtResource("8_j51yq")]
+position = Vector2(1720, -104)
+
+[node name="House5" parent="Houses" unique_id=132681447 instance=ExtResource("9_spk38")]
+position = Vector2(2448, -88)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2013669849]
 follow_viewport_enabled = true

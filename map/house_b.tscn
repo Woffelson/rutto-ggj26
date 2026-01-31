@@ -1,10 +1,10 @@
-[gd_scene format=3 uid="uid://brgwbxcdboapv"]
+[gd_scene format=3 uid="uid://5sx8orbtchj1"]
 
-[ext_resource type="Script" uid="uid://darqvqh6towhd" path="res://map/house.gd" id="1_a73il"]
-[ext_resource type="Texture2D" uid="uid://d30q3mjtfipc2" path="res://map/gfx/talo1.png" id="2_0hmyt"]
-[ext_resource type="Texture2D" uid="uid://d01ak2xr5wuft" path="res://map/gfx/talo1_ovi.png" id="4_j5a6b"]
-[ext_resource type="Texture2D" uid="uid://b0yka7gju2t0w" path="res://map/gfx/bald.png" id="4_oq2v2"]
-[ext_resource type="PackedScene" path="res://map/Torchparticle.tscn" id="5_j5a6b"]
+[ext_resource type="Script" uid="uid://darqvqh6towhd" path="res://map/house.gd" id="1_o7a0y"]
+[ext_resource type="Texture2D" uid="uid://w5rbmpmxtq5i" path="res://map/gfx/casa de kasa.png" id="2_o7a0y"]
+[ext_resource type="Texture2D" uid="uid://b0yka7gju2t0w" path="res://map/gfx/bald.png" id="3_pmchy"]
+[ext_resource type="Texture2D" uid="uid://d01ak2xr5wuft" path="res://map/gfx/talo1_ovi.png" id="4_gewms"]
+[ext_resource type="PackedScene" path="res://map/Torchparticle.tscn" id="5_yago1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a73il"]
 size = Vector2(192, 128)
@@ -14,7 +14,7 @@ size = Vector2(256, 128)
 
 [node name="House" type="Area2D" unique_id=743035152]
 scale = Vector2(2, 2)
-script = ExtResource("1_a73il")
+script = ExtResource("1_o7a0y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1735440793]
 position = Vector2(0, 64)
@@ -28,27 +28,27 @@ position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_j5a6b")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1635725668]
-position = Vector2(91.99999, -31.999998)
+position = Vector2(-19.999992, -39.999996)
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_0hmyt")
+texture = ExtResource("2_o7a0y")
 
 [node name="Sprite2D3" type="Sprite2D" parent="." unique_id=2130970198]
 position = Vector2(-8, 32)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_oq2v2")
+texture = ExtResource("3_pmchy")
 
 [node name="Door" type="Sprite2D" parent="." unique_id=699056726]
 unique_name_in_owner = true
 position = Vector2(16, 32)
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("4_j5a6b")
+texture = ExtResource("4_gewms")
 offset = Vector2(-96, 0)
 
-[node name="Torchparticle" parent="." unique_id=986599773 instance=ExtResource("5_j5a6b")]
-position = Vector2(-64, 0)
+[node name="Torchparticle" parent="." unique_id=986599773 instance=ExtResource("5_yago1")]
+position = Vector2(-168, 20)
 
-[node name="Torchparticle2" parent="." unique_id=2036873771 instance=ExtResource("5_j5a6b")]
-position = Vector2(60, 0)
+[node name="Torchparticle2" parent="." unique_id=2036873771 instance=ExtResource("5_yago1")]
+position = Vector2(144, 20)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
