@@ -15,6 +15,7 @@ size = Vector2(256, 128)
 [node name="House" type="Area2D" unique_id=743035152]
 scale = Vector2(2, 2)
 script = ExtResource("1_ukivu")
+sickness = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1735440793]
 position = Vector2(0, 64)
@@ -35,7 +36,7 @@ texture = ExtResource("2_ukivu")
 [node name="Sairas" type="Sprite2D" parent="." unique_id=2130970198]
 unique_name_in_owner = true
 visible = false
-modulate = Color(0.52, 0.28599998, 0.28599998, 1)
+modulate = Color(0.79, 0.4345, 0.4345, 1)
 position = Vector2(-16, 58)
 scale = Vector2(0.03, 0.04)
 texture = ExtResource("3_ukivu")

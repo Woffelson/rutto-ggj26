@@ -83,13 +83,11 @@ func get_potion(current_potion: Potion) -> void:
 		#potion.show()
 	for grabbed_potion: Node2D in lenses.get_children():
 		if grabbed_potion is Potion:
-			grabbed_potion.process_mode = Node.PROCESS_MODE_INHERIT
 			grabbed_potion.reparent(potions)
 			#print((grabbed_potion as Potion).start_position)
 			#grabbed_potion.position = (grabbed_potion as Potion).start_position #not wurkin
 	Global.selected_potion = current_potion
 	current_potion.reparent(lenses)
-	current_potion.process_mode = Node.PROCESS_MODE_DISABLED
 
 func disable_pick() -> void:
 	var tween: Tween = create_tween()
@@ -105,8 +103,8 @@ func _on_outside_area_entered(_area: Area2D) -> void:
 		var tween: Tween = create_tween()
 		tween.tween_property(colorrekt,"color",Color.WHITE,0.5).set_trans(Tween.TRANS_SINE)
 		pick = true
-	Global.hud.back.show()
+	if Global.hud: Global.hud.back.show()
 
 func _on_outside_area_exited(_area: Area2D) -> void:
 	disable_pick()
-	Global.hud.back.hide()
+	if Global.hud: Global.hud.back.hide()

@@ -8,6 +8,13 @@ var ver_ctrl: float = 0.0
 var facing: Vector2i = Vector2i(1,1)
 var target_position: Vector2 #mouse clicked target movemement
 var following = false #following mouse clicked position
+var stop_delay: float = 0.2
+var stopping: bool = false:
+	set(value):
+		stopping = value
+		if stopping:
+			await get_tree().create_timer(stop_delay).timeout
+			stopping = false
 
 @onready var camera: Camera2D = %Camera
 @onready var animu_spr: AnimatedSprite2D = %Animu
@@ -16,9 +23,14 @@ var following = false #following mouse clicked position
 @onready var walk_sfx: AudioStreamPlayer = %WalkSFX
 
 func _ready() -> void:
+	Global.player = self
 	tween.set_loops()
 	tween.tween_property(animu_spr,"scale",animu_og_scale+(Vector2(0.01,-0.01)),1)
 	tween.tween_property(animu_spr,"scale",animu_og_scale+(Vector2(-0.01,0.01)),1)
+
+func _enter_tree() -> void:
+	stopping = true
+	stop_delay = 4.0
 
 func _physics_process(delta: float) -> void:
 	hor_ctrl = Input.get_axis("key_left","key_right")
@@ -36,7 +48,8 @@ func _physics_process(delta: float) -> void:
 		hor_ctrl = target_position.x - position.x
 		ver_ctrl = target_position.y - position.y
 		flipper()
-	velocity = move(velocity * (delta * 60),hor_ctrl,ver_ctrl)
+	if stopping: velocity = Vector2.ZERO
+	else: velocity = move(velocity * (delta * 60),hor_ctrl,ver_ctrl)
 	if velocity.length() > 0:
 		animu_spr.play("walk")
 		tween.pause()

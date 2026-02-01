@@ -4,7 +4,17 @@
 [ext_resource type="Texture2D" uid="uid://cfyfsj4or4o30" path="res://main_menu/gfx/sai_XO7C4s0E7p.png" id="2_d3a7t"]
 [ext_resource type="Texture2D" uid="uid://bdd7565h6d5g8" path="res://inventory/gfx/tagi.png" id="3_3shxk"]
 
+[sub_resource type="Gradient" id="Gradient_3shxk"]
+offsets = PackedFloat32Array(0.62650603, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bws42"]
+gradient = SubResource("Gradient_3shxk")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [sub_resource type="SystemFont" id="SystemFont_3shxk"]
+subpixel_positioning = 0
 
 [node name="MainMenu" type="Control" unique_id=1004045537]
 layout_mode = 3
@@ -24,6 +34,15 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_d3a7t")
 
+[node name="TextureRect" type="TextureRect" parent="TextureRect" unique_id=621531263]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_bws42")
+
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1269571958]
 layout_mode = 1
 anchors_preset = 15
@@ -39,7 +58,7 @@ theme_override_constants/margin_bottom = 16
 [node name="Label" type="Label" parent="MarginContainer" unique_id=491313240]
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_colors/font_color = Color(1, 1, 1, 0.89411765)
+theme_override_colors/font_color = Color(0.65, 1, 0.7608333, 0.89411765)
 theme_override_font_sizes/font_size = 64
 text = "Malpractice
 –
