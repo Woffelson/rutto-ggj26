@@ -6,7 +6,7 @@ var game_map: Node2D
 var inventory: PotionMenu
 
 @onready var main_menu: MainMenu = preload("res://main_menu/main_menu.tscn").instantiate()
-@onready var hud: CanvasLayer = preload("res://hud.tscn").instantiate()
+@onready var hud: HUD = preload("res://hud.tscn").instantiate()
 @onready var survive: Ending = preload("res://main_menu/survive.tscn").instantiate()
 @onready var died: Ending = preload("res://main_menu/die.tscn").instantiate()
 
@@ -18,6 +18,7 @@ func _ready() -> void:
 	main_menu.started.connect(start_game)
 	survive.restarted.connect(back_to_main_menu)
 	died.restarted.connect(back_to_main_menu)
+	hud.switched_to_map.connect(switch_view.bind(game_map))
 	Global.survived.connect(happy_end)
 	Global.dieded.connect(sad_end)
 

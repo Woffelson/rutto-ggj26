@@ -41,6 +41,7 @@ func _enter_tree() -> void:
 	await get_tree().process_frame
 	swipe.play()
 	set_potions()
+	hint_tween.stop()
 
 func set_potions() -> void:
 	if potions.get_child_count() > 0:
@@ -52,8 +53,11 @@ func set_potions() -> void:
 		if potion > 4:
 			xx = 240*(potion+1-5)+222
 			yy = 550
+		if potion_scenes[potion].get_parent():
+			potion_scenes[potion].reparent(potions) #bug fix
+		else:
+			potions.add_child(potion_scenes[potion])
 		potion_scenes[potion].position = Vector2(xx,yy)
-		potions.add_child(potion_scenes[potion])
 		potion_scenes[potion].modulate = Color.from_hsv(randf(), randf_range(0.0,0.3), 1)
 		if !potion_scenes[potion].selected.is_connected(get_potion):
 			potion_scenes[potion].selected.connect(get_potion)
@@ -61,8 +65,8 @@ func set_potions() -> void:
 func _physics_process(_delta: float) -> void:
 	lenses.position = get_global_mouse_position()
 	if Input.is_action_just_pressed("mb_left") && pick:
-		medicine_chosen.emit(Global.selected_potion.type,Global.selected_potion.healthy)
 		Global.selected_potion.reparent(potions) #items persist
+		medicine_chosen.emit(Global.selected_potion.type,Global.selected_potion.healthy)
 		#potion_scenes.erase(Global.selected_potion) #items are...
 		#Global.selected_potion.queue_free() #...used
 		Global.selected_potion = null
@@ -97,10 +101,12 @@ func _on_cough_timer_timeout() -> void:
 	cough_timer.wait_time = randi_range(5,10)
 
 func _on_outside_area_entered(_area: Area2D) -> void:
-	if Global.selected_potion:
+	if Global.selected_potion != null:
 		var tween: Tween = create_tween()
 		tween.tween_property(colorrekt,"color",Color.WHITE,0.5).set_trans(Tween.TRANS_SINE)
 		pick = true
+	Global.hud.back.show()
 
 func _on_outside_area_exited(_area: Area2D) -> void:
 	disable_pick()
+	Global.hud.back.hide()

@@ -98,3 +98,23 @@ texture_progress = SubResource("NoiseTexture2D_1xsix")
 [node name="Control" type="Control" parent="Control/MarginContainer/HBoxContainer" unique_id=181494112]
 custom_minimum_size = Vector2(1000, 0)
 layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=582378130]
+custom_minimum_size = Vector2(128, 128)
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Back" type="Label" parent="MarginContainer" unique_id=402359491]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.62152386, 0.62152386, 0.6215238, 0.89411765)
+theme_override_font_sizes/font_size = 32
+text = "Back..."
