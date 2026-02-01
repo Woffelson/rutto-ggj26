@@ -1,8 +1,18 @@
 [gd_scene format=3 uid="uid://cxosq4jbfx2h4"]
 
 [ext_resource type="Script" uid="uid://bx30uhnx1gt56" path="res://main_menu/ending.gd" id="1_xudh2"]
-[ext_resource type="Texture2D" uid="uid://c4mqrt5jusb1k" path="res://tmp.tres" id="2_0p8iu"]
+[ext_resource type="Texture2D" uid="uid://bgdn52lcbia1n" path="res://main_menu/gfx/31109DD6-904D-4961-B523-2A8B3B7E59D1.png" id="2_7q8h4"]
 [ext_resource type="AudioStream" uid="uid://cryr74fw22q3l" path="res://inventory/sfx/dr/lopullinen.wav" id="3_fa8th"]
+[ext_resource type="Texture2D" uid="uid://bi2fa7wqef656" path="res://main_menu/gfx/havio1.png" id="3_pdel8"]
+
+[sub_resource type="Gradient" id="Gradient_rty0x"]
+offsets = PackedFloat32Array(0.62650603, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_r71n2"]
+gradient = SubResource("Gradient_rty0x")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [node name="Die" type="Control" unique_id=1396558701]
 layout_mode = 3
@@ -14,21 +24,43 @@ grow_vertical = 2
 script = ExtResource("1_xudh2")
 survived = false
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1345594380]
+[node name="A" type="TextureRect" parent="." unique_id=1345594380]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_0p8iu")
+texture = ExtResource("2_7q8h4")
 stretch_mode = 1
+
+[node name="B" type="TextureRect" parent="." unique_id=681278604]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_pdel8")
+stretch_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="B" unique_id=195424570]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_r71n2")
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=580582273]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -510.0
 grow_horizontal = 2
 grow_vertical = 2
 
