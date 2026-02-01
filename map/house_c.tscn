@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bfbwamwg4sv78" path="res://map/gfx/talo2.png" id="2_uymck"]
 [ext_resource type="Texture2D" uid="uid://b0yka7gju2t0w" path="res://map/gfx/bald.png" id="3_uymck"]
 [ext_resource type="Texture2D" uid="uid://b7xy7v3mnooca" path="res://map/gfx/ovi_fixed.png" id="4_knphp"]
-[ext_resource type="PackedScene" path="res://map/Torchparticle.tscn" id="5_p40ug"]
+[ext_resource type="PackedScene" uid="uid://5u1b7r68tmhg" path="res://map/Torchparticle.tscn" id="5_p40ug"]
 [ext_resource type="AudioStream" uid="uid://bpu56ncxqaj5l" path="res://map/sfx/characters/hikka/hikka001.wav" id="6_knphp"]
 [ext_resource type="AudioStream" uid="uid://cvp4kajhjrh45" path="res://map/sfx/characters/hikka/hikka002.wav" id="7_8foca"]
 [ext_resource type="AudioStream" uid="uid://c3ngov02vfky0" path="res://map/sfx/characters/hikka/hikka003.wav" id="8_dphyf"]
@@ -22,6 +22,7 @@
 [ext_resource type="AudioStream" uid="uid://dk1nklhrrhg6a" path="res://map/sfx/characters/hikka/hikkanen009.wav" id="20_jcvei"]
 [ext_resource type="AudioStream" uid="uid://bi3wgh433stxi" path="res://map/sfx/characters/hikka/hikkanen011.wav" id="21_ys464"]
 [ext_resource type="AudioStream" uid="uid://b83biinefl4oi" path="res://map/sfx/characters/hikka/hikkanen010.wav" id="22_hb1oa"]
+[ext_resource type="Texture2D" uid="uid://c32k34xldph0y" path="res://map/gfx/soihtu_seina.png" id="23_8foca"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a73il"]
 size = Vector2(192, 128)
@@ -89,7 +90,7 @@ texture = ExtResource("4_knphp")
 offset = Vector2(-96, 0)
 
 [node name="Torchparticle" parent="." unique_id=986599773 instance=ExtResource("5_p40ug")]
-position = Vector2(-8, -68)
+position = Vector2(-2, -68)
 
 [node name="Sickness" type="AudioStreamPlayer2D" parent="." unique_id=2015122539]
 unique_name_in_owner = true
@@ -108,6 +109,11 @@ unique_name_in_owner = true
 stream = ExtResource("22_hb1oa")
 max_distance = 1000.0
 bus = &"MapSFX"
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1286481169]
+position = Vector2(-1, -47.5)
+scale = Vector2(0.45955884, 0.375)
+texture = ExtResource("23_8foca")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

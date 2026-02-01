@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://d2ogbhb4hpt55" path="res://map/gfx/talo3.png" id="2_ukivu"]
 [ext_resource type="Texture2D" uid="uid://dnsuytollaiai" path="res://map/gfx/mummo.png" id="3_ukivu"]
 [ext_resource type="Texture2D" uid="uid://b7xy7v3mnooca" path="res://map/gfx/ovi_fixed.png" id="4_srpco"]
-[ext_resource type="PackedScene" path="res://map/Torchparticle.tscn" id="5_ds3en"]
+[ext_resource type="PackedScene" uid="uid://5u1b7r68tmhg" path="res://map/Torchparticle.tscn" id="5_ds3en"]
 [ext_resource type="AudioStream" uid="uid://dp4vqynoy56qg" path="res://map/sfx/characters/niisku/ysk001.wav" id="6_srpco"]
 [ext_resource type="AudioStream" uid="uid://bed3itc6333us" path="res://map/sfx/characters/niisku/ysk002.wav" id="7_kqcv6"]
 [ext_resource type="AudioStream" uid="uid://bj2qb7pyxr43j" path="res://map/sfx/characters/niisku/ysk003.wav" id="8_fklna"]
@@ -22,6 +22,7 @@
 [ext_resource type="AudioStream" uid="uid://dqutmbg8uxtsf" path="res://map/sfx/characters/niisku/yskänen009.wav" id="20_evnwc"]
 [ext_resource type="AudioStream" uid="uid://c3s7xjwsyp4bf" path="res://map/sfx/characters/niisku/yskänen010.wav" id="21_b6u7a"]
 [ext_resource type="AudioStream" uid="uid://c1fplt0dk1eiy" path="res://map/sfx/characters/niisku/yskänen008.wav" id="22_qwi5q"]
+[ext_resource type="Texture2D" uid="uid://cl4wdbcmb1jws" path="res://map/gfx/soihtu2_stand.png" id="23_kqcv6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a73il"]
 size = Vector2(192, 128)
@@ -89,7 +90,7 @@ texture = ExtResource("4_srpco")
 offset = Vector2(-96, 0)
 
 [node name="Torchparticle" parent="." unique_id=986599773 instance=ExtResource("5_ds3en")]
-position = Vector2(-72, 20)
+position = Vector2(-73.5, 6)
 
 [node name="Sickness" type="AudioStreamPlayer2D" parent="." unique_id=2082757620]
 unique_name_in_owner = true
@@ -108,6 +109,11 @@ unique_name_in_owner = true
 stream = ExtResource("22_qwi5q")
 max_distance = 1000.0
 bus = &"MapSFX"
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1988567415]
+position = Vector2(-74.5, 44)
+scale = Vector2(0.26367193, 0.23046876)
+texture = ExtResource("23_kqcv6")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -10,9 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://dt1wmos55obfv" path="res://map/gfx/kyltti.webp" id="6_j51yq"]
 [ext_resource type="Texture2D" uid="uid://d30q3mjtfipc2" path="res://map/gfx/talo1.png" id="6_spk38"]
 [ext_resource type="PackedScene" uid="uid://bjhawab5wlupw" path="res://map/house_c.tscn" id="7_ly7yr"]
-[ext_resource type="PackedScene" path="res://map/gfx/Flyparticle.tscn" id="7_naws2"]
+[ext_resource type="PackedScene" uid="uid://by4s6vlqkqmrw" path="res://map/gfx/Flyparticle.tscn" id="7_naws2"]
 [ext_resource type="PackedScene" uid="uid://li0npwjf2677" path="res://map/house_d.tscn" id="8_j51yq"]
 [ext_resource type="PackedScene" uid="uid://yr8ygc5d1u2e" path="res://map/house_e.tscn" id="9_spk38"]
+[ext_resource type="Texture2D" uid="uid://byef2hrv72tt0" path="res://map/gfx/Cat.png" id="14_kwifk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lhyto"]
 size = Vector2(32, 2160)
@@ -114,6 +115,13 @@ position = Vector2(2319, -469)
 scale = Vector2(1.9969594, 1.9969594)
 texture = ExtResource("5_ly7yr")
 
+[node name="TreeBackground8" type="Sprite2D" parent="." unique_id=71043033]
+modulate = Color(1, 1, 1, 0.7058824)
+z_index = -2
+position = Vector2(3436, -523)
+scale = Vector2(1.9969594, 1.9969594)
+texture = ExtResource("5_ly7yr")
+
 [node name="TreeBackground5" type="Sprite2D" parent="." unique_id=174797612]
 modulate = Color(1, 1, 1, 0.7058824)
 z_index = -2
@@ -135,6 +143,13 @@ rotation = 2.2161489
 scale = Vector2(1, -1)
 texture = ExtResource("6_spk38")
 
+[node name="BackgroundGrass4" type="Sprite2D" parent="." unique_id=1391398350]
+z_index = -2
+position = Vector2(2685, 956.0001)
+rotation = 2.2161489
+scale = Vector2(1, -1)
+texture = ExtResource("6_spk38")
+
 [node name="BackgroundGrass3" type="Sprite2D" parent="." unique_id=1525816260]
 z_index = -2
 position = Vector2(-1107, 972.0001)
@@ -150,6 +165,11 @@ texture = ExtResource("5_ly7yr")
 [node name="TreeMiddle3" type="Sprite2D" parent="." unique_id=1377788649]
 position = Vector2(2058, -141)
 scale = Vector2(0.6202699, 0.6202697)
+texture = ExtResource("5_ly7yr")
+
+[node name="TreeMiddle4" type="Sprite2D" parent="." unique_id=732776306]
+position = Vector2(3474, -163)
+scale = Vector2(0.7709458, 0.8182497)
 texture = ExtResource("5_ly7yr")
 
 [node name="TreeMiddle" type="Sprite2D" parent="." unique_id=187018606]
@@ -352,3 +372,7 @@ layout_mode = 0
 offset_right = 512.0
 offset_bottom = 2176.0
 texture = SubResource("NoiseTexture2D_6rqhj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=874256873]
+position = Vector2(-60, -386)
+texture = ExtResource("14_kwifk")

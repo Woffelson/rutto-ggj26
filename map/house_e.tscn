@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ds8bkviyt88d3" path="res://map/gfx/talo.png" id="2_ocb3o"]
 [ext_resource type="Texture2D" uid="uid://b0yka7gju2t0w" path="res://map/gfx/bald.png" id="3_gefix"]
 [ext_resource type="Texture2D" uid="uid://b7xy7v3mnooca" path="res://map/gfx/ovi_fixed.png" id="4_rl7qq"]
-[ext_resource type="PackedScene" path="res://map/Torchparticle.tscn" id="5_ydjo2"]
+[ext_resource type="PackedScene" uid="uid://5u1b7r68tmhg" path="res://map/Torchparticle.tscn" id="5_ydjo2"]
 [ext_resource type="AudioStream" uid="uid://cv2rsuh255ru8" path="res://map/sfx/characters/kuolo/yok001.wav" id="6_rl7qq"]
 [ext_resource type="AudioStream" uid="uid://b3jfcsvt00wt6" path="res://map/sfx/characters/kuolo/yok002.wav" id="7_s60lq"]
 [ext_resource type="AudioStream" uid="uid://dsc3b2atrd6em" path="res://map/sfx/characters/kuolo/yok003.wav" id="8_sidty"]
@@ -24,6 +24,7 @@
 [ext_resource type="AudioStream" uid="uid://dafjw5b8wmuj8" path="res://map/sfx/characters/kuolo/kuolosetä010.wav" id="22_olv1n"]
 [ext_resource type="AudioStream" uid="uid://cgnbjbyb3ob5j" path="res://map/sfx/characters/kuolo/kuolosetä011.wav" id="23_tlnmg"]
 [ext_resource type="AudioStream" uid="uid://ct3nlsmh0bshb" path="res://map/sfx/characters/kuolo/kuolosetä002.wav" id="24_mee8h"]
+[ext_resource type="Texture2D" uid="uid://c32k34xldph0y" path="res://map/gfx/soihtu_seina.png" id="25_s60lq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a73il"]
 size = Vector2(192, 128)
@@ -94,7 +95,7 @@ texture = ExtResource("4_rl7qq")
 offset = Vector2(-96, 0)
 
 [node name="Torchparticle" parent="." unique_id=986599773 instance=ExtResource("5_ydjo2")]
-position = Vector2(-64, 28)
+position = Vector2(-57.5, 16)
 
 [node name="Sickness" type="AudioStreamPlayer2D" parent="." unique_id=1281487066]
 unique_name_in_owner = true
@@ -113,6 +114,11 @@ unique_name_in_owner = true
 stream = ExtResource("24_mee8h")
 max_distance = 1000.0
 bus = &"MapSFX"
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=750215621]
+position = Vector2(-57.5, 34.5)
+scale = Vector2(0.37867644, 0.3092105)
+texture = ExtResource("25_s60lq")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://d30q3mjtfipc2" path="res://map/gfx/talo1.png" id="2_0hmyt"]
 [ext_resource type="Texture2D" uid="uid://dnsuytollaiai" path="res://map/gfx/mummo.png" id="3_j5a6b"]
 [ext_resource type="Texture2D" uid="uid://b7xy7v3mnooca" path="res://map/gfx/ovi_fixed.png" id="4_pvhx6"]
-[ext_resource type="PackedScene" path="res://map/Torchparticle.tscn" id="5_j5a6b"]
+[ext_resource type="PackedScene" uid="uid://5u1b7r68tmhg" path="res://map/Torchparticle.tscn" id="5_j5a6b"]
 [ext_resource type="AudioStream" uid="uid://b06hjfie3uo17" path="res://map/sfx/characters/voivoi/voivoi001.wav" id="6_pvhx6"]
 [ext_resource type="AudioStream" uid="uid://dovr0og2ut83p" path="res://map/sfx/characters/voivoi/voivoi002.wav" id="7_qblp2"]
 [ext_resource type="AudioStream" uid="uid://c84ceqa07il5r" path="res://map/sfx/characters/voivoi/voivoi003.wav" id="8_bxgeu"]
@@ -17,6 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://bxbehd8tmhcib" path="res://map/sfx/characters/voivoi/voivoi011.wav" id="15_v7kcc"]
 [ext_resource type="AudioStream" uid="uid://bqhj35xf0xaac" path="res://map/sfx/characters/voivoi/voivoi012.wav" id="16_u3d7l"]
 [ext_resource type="AudioStream" uid="uid://b5tejl5r8irc" path="res://map/sfx/characters/voivoi/voivoi006.wav" id="17_2prte"]
+[ext_resource type="Texture2D" uid="uid://c32k34xldph0y" path="res://map/gfx/soihtu_seina.png" id="18_bxgeu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a73il"]
 size = Vector2(192, 128)
@@ -101,6 +102,16 @@ unique_name_in_owner = true
 stream = ExtResource("17_2prte")
 max_distance = 1000.0
 bus = &"MapSFX"
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=778431631]
+position = Vector2(-63.5, 17.000002)
+scale = Vector2(0.30514705, 0.25438598)
+texture = ExtResource("18_bxgeu")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=564925161]
+position = Vector2(60.999996, 13.000006)
+scale = Vector2(0.30514705, 0.25438598)
+texture = ExtResource("18_bxgeu")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
