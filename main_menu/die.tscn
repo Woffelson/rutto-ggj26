@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://cxosq4jbfx2h4"]
+
+[ext_resource type="Script" uid="uid://bx30uhnx1gt56" path="res://main_menu/ending.gd" id="1_xudh2"]
+[ext_resource type="Texture2D" uid="uid://c4mqrt5jusb1k" path="res://tmp.tres" id="2_0p8iu"]
+
+[node name="Die" type="Control" unique_id=1396558701]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xudh2")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1345594380]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_0p8iu")
+stretch_mode = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=580582273]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Colour" type="ColorRect" parent="CenterContainer" unique_id=1136148155]
+custom_minimum_size = Vector2(1024, 512)
+layout_mode = 2
+color = Color(1, 0, 0, 0.58431375)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1962556017]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1831450302]
+layout_mode = 2
+theme_override_font_sizes/font_size = 128
+text = "You dieded"
+
+[node name="Label2" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1304182900]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Ahh too bad"
+
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1090188978]
+layout_mode = 2
+text = "Main menu"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

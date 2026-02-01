@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bmsoi25cig37y" path="res://main_menu/main_menu.gd" id="1_06t4h"]
 [ext_resource type="Texture2D" uid="uid://cfyfsj4or4o30" path="res://main_menu/gfx/sai_XO7C4s0E7p.png" id="2_d3a7t"]
+[ext_resource type="Texture2D" uid="uid://bdd7565h6d5g8" path="res://inventory/gfx/tagi.png" id="3_3shxk"]
 
 [node name="MainMenu" type="Control" unique_id=1004045537]
 layout_mode = 3
@@ -53,10 +54,62 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Start curing"
 
+[node name="Help" type="Button" parent="MarginContainer/VBoxContainer" unique_id=996514111]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Help"
+
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer" unique_id=420554273]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Nope"
 
+[node name="Hlep" type="MarginContainer" parent="." unique_id=422279874]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="TextureRect2" type="TextureRect" parent="Hlep" unique_id=563715059]
+custom_minimum_size = Vector2(640, 640)
+layout_mode = 2
+texture = ExtResource("3_3shxk")
+
+[node name="MarginContainer" type="MarginContainer" parent="Hlep/TextureRect2" unique_id=1280812943]
+custom_minimum_size = Vector2(300, 320)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -248.0
+offset_top = -120.0
+offset_right = 72.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.51836276
+
+[node name="Label" type="Label" parent="Hlep/TextureRect2/MarginContainer" unique_id=1579258121]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Move: Keys / WASD
+             or mouse
+
+- Cure the sickened
+- Select correct medicine
+- Do not become sickened"
+autowrap_mode = 2
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Help" to="." method="_on_help_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b1jf5iu4wxrak" path="res://new_gradient_texture_2d.tres" id="3_224g0"]
 [ext_resource type="Texture2D" uid="uid://ttfue7e8ll6o" path="res://map/gfx/hero_sprite1.png" id="4_67m4m"]
 [ext_resource type="Texture2D" uid="uid://bth57if3jxopx" path="res://map/gfx/hero_sprite2.png" id="5_8as5d"]
+[ext_resource type="AudioStream" uid="uid://dus8fnthaub7x" path="res://map/sfx/footsteps-walking-on-concrete-glitchedtones-slow-3-00-17.mp3" id="5_67m4m"]
 
 [sub_resource type="Gradient" id="Gradient_q1yb2"]
 offsets = PackedFloat32Array(0.06626506, 0.59638554)
@@ -62,7 +63,7 @@ texture = ExtResource("3_224g0")
 
 [node name="Animu" type="AnimatedSprite2D" parent="." unique_id=1422798096]
 unique_name_in_owner = true
-scale = Vector2(0.2, 0.2)
+scale = Vector2(0.15, 0.15)
 sprite_frames = SubResource("SpriteFrames_cx36e")
 animation = &"idle"
 offset = Vector2(0, -256)
@@ -70,3 +71,8 @@ flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1458478849]
 shape = SubResource("CircleShape2D_8as5d")
+
+[node name="WalkSFX" type="AudioStreamPlayer" parent="." unique_id=1849083254]
+unique_name_in_owner = true
+stream = ExtResource("5_67m4m")
+parameters/looping = false

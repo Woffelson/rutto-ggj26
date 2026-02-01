@@ -7,6 +7,8 @@ var inventory: PotionMenu
 
 @onready var main_menu: MainMenu = preload("res://main_menu/main_menu.tscn").instantiate()
 @onready var hud: CanvasLayer = preload("res://hud.tscn").instantiate()
+@onready var survive: Ending = preload("res://main_menu/survive.tscn").instantiate()
+@onready var died: Ending = preload("res://main_menu/die.tscn").instantiate()
 
 var current_view: Node2D
 
@@ -14,6 +16,10 @@ func _ready() -> void:
 	reset_scenes()
 	add_child(main_menu)
 	main_menu.started.connect(start_game)
+	survive.restarted.connect(back_to_main_menu)
+	died.restarted.connect(back_to_main_menu)
+	Global.survived.connect(happy_end)
+	Global.dieded.connect(sad_end)
 
 func reset_scenes() -> void:
 	game_map = game_map_path.instantiate()
@@ -41,9 +47,17 @@ func switch_view(new_view: Node2D) -> void:
 		current_view = new_view
 
 func back_to_main_menu() -> void:
+	get_tree().reload_current_scene()
+	
+func happy_end() -> void:
 	game_map.queue_free()
 	inventory.queue_free()
 	remove_child(hud)
-	reset_scenes()
-	add_child(main_menu)
-	
+	#reset_scenes()
+	add_child(survive)
+
+func sad_end() -> void:
+	game_map.queue_free()
+	inventory.queue_free()
+	remove_child(hud)
+	add_child(died)

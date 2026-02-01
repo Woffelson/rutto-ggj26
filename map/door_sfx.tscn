@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dby1mqhx60kj2"]
+
+[node name="DoorSfx" type="Node2D" unique_id=1409079857]
+
+[node name="Open" type="AudioStreamPlayer2D" parent="." unique_id=819489723]
+unique_name_in_owner = true
+
+[node name="Close" type="AudioStreamPlayer2D" parent="." unique_id=1352940706]
+unique_name_in_owner = true

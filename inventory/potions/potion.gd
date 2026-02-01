@@ -4,6 +4,7 @@ enum Type {BOTTLE, MUSHROOM, WORMS, ONION, BERRIES}
 
 @export var type: Type
 var healthy: bool = true
+var start_position: Vector2
 
 var healthy_texts: Dictionary[Type,String] = {
 	Type.BOTTLE: "Instant relief for\ncough",
@@ -29,6 +30,10 @@ var preselection: bool = false
 func _ready() -> void:
 	if healthy: label.text = healthy_texts[type]
 	else: label.text = unhealthy_texts[type]
+
+func _enter_tree() -> void:
+	await get_tree().process_frame
+	start_position = position
 
 func _physics_process(_delta: float) -> void:
 	if preselection && Input.is_action_just_pressed("mb_left"):

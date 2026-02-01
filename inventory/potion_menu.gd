@@ -1,11 +1,17 @@
 class_name PotionMenu extends Node2D
 
 var potion_scenes: Array[Potion] #healthy and unhealthy ones
+var pick: bool = false
 
 @onready var lenses: Node2D = %Lenses
 @onready var potions: Node2D = %Potions
 @onready var cough: AudioStreamPlayer = %Cough
-@onready var timer: Timer = %Timer
+@onready var cough_timer: Timer = %CoughTimer
+@onready var timer: Timer = Timer.new()
+@onready var swipe: AudioStreamPlayer = %Swipe
+@onready var colorrekt: ColorRect = %ColorRect
+@onready var outside: Area2D = %Outside
+@onready var hint_tween: Tween = get_tree().create_tween().set_loops()
 @onready var potion_scene_paths: Array[PackedScene] = [
 	preload("res://inventory/potions/berries.tscn"),
 	preload("res://inventory/potions/bottle.tscn"),
@@ -14,17 +20,26 @@ var potion_scenes: Array[Potion] #healthy and unhealthy ones
 	preload("res://inventory/potions/worms.tscn"),
 ]
 
+signal medicine_chosen(type: Potion.Type, healthy: bool)
+
 func _ready() -> void:
-	timer.wait_time = randi_range(5,10)
+	add_child(timer)
+	timer.start(Global.contamination_delay)
+	timer.timeout.connect(func(): Global.contamination += 1)
+	cough_timer.wait_time = randi_range(5,10)
 	for potion_resource: PackedScene in potion_scene_paths:
 		potion_scenes.append(potion_resource.instantiate())
 	for potion_resource: PackedScene in potion_scene_paths:
 		var poison: Potion = potion_resource.instantiate()
 		poison.healthy = false
 		potion_scenes.append(poison)
+	hint_tween.tween_property(colorrekt,"color",Color.DIM_GRAY,0.5).set_trans(Tween.TRANS_SINE)
+	hint_tween.tween_property(colorrekt,"color",Color.BLACK,0.5).set_trans(Tween.TRANS_SINE)
+	hint_tween.stop()
 
 func _enter_tree() -> void:
 	await get_tree().process_frame
+	swipe.play()
 	set_potions()
 
 func set_potions() -> void:
@@ -39,18 +54,53 @@ func set_potions() -> void:
 			yy = 550
 		potion_scenes[potion].position = Vector2(xx,yy)
 		potions.add_child(potion_scenes[potion])
+		potion_scenes[potion].modulate = Color.from_hsv(randf(), randf_range(0.0,0.3), 1)
 		if !potion_scenes[potion].selected.is_connected(get_potion):
 			potion_scenes[potion].selected.connect(get_potion)
 
 func _physics_process(_delta: float) -> void:
 	lenses.position = get_global_mouse_position()
+	if Input.is_action_just_pressed("mb_left") && pick:
+		medicine_chosen.emit(Global.selected_potion.type,Global.selected_potion.healthy)
+		Global.selected_potion.reparent(potions) #items persist
+		#potion_scenes.erase(Global.selected_potion) #items are...
+		#Global.selected_potion.queue_free() #...used
+		Global.selected_potion = null
+		await get_tree().process_frame
+		disable_pick()
+	if Global.selected_potion != null && !pick: hint_tween.play()
+	elif Global.selected_potion == null:
+		hint_tween.stop()
+		colorrekt.color = Color.BLACK
+	else: hint_tween.stop()
 
 func get_potion(current_potion: Potion) -> void:
-	for potion: Potion in potions.get_children():
-		potion.show()
+	#for potion: Potion in potions.get_children():
+		#potion.show()
+	for grabbed_potion: Node2D in lenses.get_children():
+		if grabbed_potion is Potion:
+			grabbed_potion.process_mode = Node.PROCESS_MODE_INHERIT
+			grabbed_potion.reparent(potions)
+			#print((grabbed_potion as Potion).start_position)
+			#grabbed_potion.position = (grabbed_potion as Potion).start_position #not wurkin
 	Global.selected_potion = current_potion
-	current_potion.hide()
+	current_potion.reparent(lenses)
+	current_potion.process_mode = Node.PROCESS_MODE_DISABLED
 
-func _on_timer_timeout() -> void:
+func disable_pick() -> void:
+	var tween: Tween = create_tween()
+	tween.tween_property(colorrekt,"color",Color.BLACK,0.1).set_trans(Tween.TRANS_SINE)
+	pick = false
+
+func _on_cough_timer_timeout() -> void:
 	cough.play()
-	timer.wait_time = randi_range(5,10)
+	cough_timer.wait_time = randi_range(5,10)
+
+func _on_outside_area_entered(_area: Area2D) -> void:
+	if Global.selected_potion:
+		var tween: Tween = create_tween()
+		tween.tween_property(colorrekt,"color",Color.WHITE,0.5).set_trans(Tween.TRANS_SINE)
+		pick = true
+
+func _on_outside_area_exited(_area: Area2D) -> void:
+	disable_pick()

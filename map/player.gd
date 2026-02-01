@@ -11,7 +11,14 @@ var following = false #following mouse clicked position
 
 @onready var camera: Camera2D = %Camera
 @onready var animu_spr: AnimatedSprite2D = %Animu
-@onready var tween: Tween = get_tree().create_tween().set_loops()
+@onready var tween: Tween = get_tree().create_tween()
+@onready var animu_og_scale: Vector2 = animu_spr.scale
+@onready var walk_sfx: AudioStreamPlayer = %WalkSFX
+
+func _ready() -> void:
+	tween.set_loops()
+	tween.tween_property(animu_spr,"scale",animu_og_scale+(Vector2(0.01,-0.01)),1)
+	tween.tween_property(animu_spr,"scale",animu_og_scale+(Vector2(-0.01,0.01)),1)
 
 func _physics_process(delta: float) -> void:
 	hor_ctrl = Input.get_axis("key_left","key_right")
@@ -19,7 +26,7 @@ func _physics_process(delta: float) -> void:
 	if abs(hor_ctrl) > 0:
 		facing.x = sign(hor_ctrl)
 		if ver_ctrl == 0: facing.y = 0
-		animu_spr.flip_h = bool(min(0,-hor_ctrl))
+		flipper()
 	if abs(ver_ctrl) > 0:
 		facing.y = sign(ver_ctrl)
 		if hor_ctrl == 0: facing.x = sign(facing.x)*0.5
@@ -28,17 +35,21 @@ func _physics_process(delta: float) -> void:
 	if following && abs(target_position.length() - position.length()) > 32: #experimental mouse movement
 		hor_ctrl = target_position.x - position.x
 		ver_ctrl = target_position.y - position.y
+		flipper()
 	velocity = move(velocity * (delta * 60),hor_ctrl,ver_ctrl)
 	if velocity.length() > 0:
 		animu_spr.play("walk")
 		tween.pause()
-		animu_spr.scale = Vector2(0.2,0.2)
+		animu_spr.scale = animu_og_scale
+		if !walk_sfx.has_stream_playback(): walk_sfx.play()
 	else:
-		tween.stop()
 		animu_spr.play("idle")
-		tween.tween_property(animu_spr,"scale",Vector2(0.21,0.19),1)
-		tween.tween_property(animu_spr,"scale",Vector2(0.19,0.21),1)
+		tween.play()
+		walk_sfx.stop()
 	move_and_slide()
+
+func flipper()->void: # :--)
+	animu_spr.flip_h = bool(min(0,-hor_ctrl))
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("mb_left"):
@@ -53,7 +64,7 @@ func move(velocityxy: Vector2,horizontal_direction: float = 0.0,vertical_directi
 	else: return velocityxy.move_toward(Vector2.ZERO,friction)
 
 func camera_zoom(in_or_out: bool) -> void:
-	var tween: Tween = create_tween()
+	var camera_tween: Tween = create_tween()
 	if in_or_out:
-		tween.tween_property(camera,"zoom",Vector2(2,2),1.5).set_trans(Tween.TRANS_SINE)
-	else: tween.tween_property(camera,"zoom",Vector2(1,1),1.5).set_trans(Tween.TRANS_SINE)
+		camera_tween.tween_property(camera,"zoom",Vector2(2,2),1.5).set_trans(Tween.TRANS_SINE)
+	else: camera_tween.tween_property(camera,"zoom",Vector2(1,1),1.5).set_trans(Tween.TRANS_SINE)
