@@ -59,6 +59,7 @@ text = "Main menu"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=535677858]
 stream = ExtResource("3_fa8th")
+autoplay = true
 bus = &"drSFX"
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
