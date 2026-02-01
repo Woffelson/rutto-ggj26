@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://darqvqh6towhd" path="res://map/house.gd" id="1_ocb3o"]
 [ext_resource type="Texture2D" uid="uid://ds8bkviyt88d3" path="res://map/gfx/talo.png" id="2_ocb3o"]
 [ext_resource type="Texture2D" uid="uid://b0yka7gju2t0w" path="res://map/gfx/bald.png" id="3_gefix"]
-[ext_resource type="Texture2D" uid="uid://d01ak2xr5wuft" path="res://map/gfx/talo1_ovi.png" id="4_mu5qq"]
+[ext_resource type="Texture2D" uid="uid://b7xy7v3mnooca" path="res://map/gfx/ovi_fixed.png" id="4_rl7qq"]
 [ext_resource type="PackedScene" path="res://map/Torchparticle.tscn" id="5_ydjo2"]
 [ext_resource type="AudioStream" uid="uid://cv2rsuh255ru8" path="res://map/sfx/characters/kuolo/yok001.wav" id="6_rl7qq"]
 [ext_resource type="AudioStream" uid="uid://b3jfcsvt00wt6" path="res://map/sfx/characters/kuolo/yok002.wav" id="7_s60lq"]
@@ -90,7 +90,7 @@ flip_h = true
 unique_name_in_owner = true
 position = Vector2(16, 32)
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("4_mu5qq")
+texture = ExtResource("4_rl7qq")
 offset = Vector2(-96, 0)
 
 [node name="Torchparticle" parent="." unique_id=986599773 instance=ExtResource("5_ydjo2")]
