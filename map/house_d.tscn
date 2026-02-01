@@ -5,6 +5,23 @@
 [ext_resource type="Texture2D" uid="uid://dnsuytollaiai" path="res://map/gfx/mummo.png" id="3_ukivu"]
 [ext_resource type="Texture2D" uid="uid://d01ak2xr5wuft" path="res://map/gfx/talo1_ovi.png" id="4_c40mm"]
 [ext_resource type="PackedScene" path="res://map/Torchparticle.tscn" id="5_ds3en"]
+[ext_resource type="AudioStream" uid="uid://dp4vqynoy56qg" path="res://map/sfx/characters/niisku/ysk001.wav" id="6_srpco"]
+[ext_resource type="AudioStream" uid="uid://bed3itc6333us" path="res://map/sfx/characters/niisku/ysk002.wav" id="7_kqcv6"]
+[ext_resource type="AudioStream" uid="uid://bj2qb7pyxr43j" path="res://map/sfx/characters/niisku/ysk003.wav" id="8_fklna"]
+[ext_resource type="AudioStream" uid="uid://co03d31ig2dvk" path="res://map/sfx/characters/niisku/ysk004.wav" id="9_0sq5n"]
+[ext_resource type="AudioStream" uid="uid://dqjjpnrk1fjvi" path="res://map/sfx/characters/niisku/ysk005.wav" id="10_bi17o"]
+[ext_resource type="AudioStream" uid="uid://cepnqnok62pc6" path="res://map/sfx/characters/niisku/ysk006.wav" id="11_6m4ry"]
+[ext_resource type="AudioStream" uid="uid://c1a7o1usbd2ul" path="res://map/sfx/characters/niisku/ysk007.wav" id="12_jcx2n"]
+[ext_resource type="AudioStream" uid="uid://b3dflxrnrnnf6" path="res://map/sfx/characters/niisku/yskänen001.wav" id="13_swuxk"]
+[ext_resource type="AudioStream" uid="uid://61vbsh1ml7vp" path="res://map/sfx/characters/niisku/yskänen002.wav" id="14_wx1m2"]
+[ext_resource type="AudioStream" uid="uid://dohs644wdvff7" path="res://map/sfx/characters/niisku/yskänen003.wav" id="15_n1rcy"]
+[ext_resource type="AudioStream" uid="uid://cmnjebeparf3b" path="res://map/sfx/characters/niisku/yskänen004.wav" id="16_1qwlq"]
+[ext_resource type="AudioStream" uid="uid://bj351fittdjth" path="res://map/sfx/characters/niisku/yskänen005.wav" id="17_n7s7i"]
+[ext_resource type="AudioStream" uid="uid://b0eafyx7m1371" path="res://map/sfx/characters/niisku/yskänen006.wav" id="18_mnych"]
+[ext_resource type="AudioStream" uid="uid://clwjfu4svpwpq" path="res://map/sfx/characters/niisku/yskänen007.wav" id="19_bgf71"]
+[ext_resource type="AudioStream" uid="uid://dqutmbg8uxtsf" path="res://map/sfx/characters/niisku/yskänen009.wav" id="20_evnwc"]
+[ext_resource type="AudioStream" uid="uid://c3s7xjwsyp4bf" path="res://map/sfx/characters/niisku/yskänen010.wav" id="21_b6u7a"]
+[ext_resource type="AudioStream" uid="uid://c1fplt0dk1eiy" path="res://map/sfx/characters/niisku/yskänen008.wav" id="22_qwi5q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a73il"]
 size = Vector2(192, 128)
@@ -12,10 +29,32 @@ size = Vector2(192, 128)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j5a6b"]
 size = Vector2(256, 128)
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ns3ri"]
+streams_count = 7
+stream_0/stream = ExtResource("6_srpco")
+stream_1/stream = ExtResource("7_kqcv6")
+stream_2/stream = ExtResource("8_fklna")
+stream_3/stream = ExtResource("9_0sq5n")
+stream_4/stream = ExtResource("10_bi17o")
+stream_5/stream = ExtResource("11_6m4ry")
+stream_6/stream = ExtResource("12_jcx2n")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_epkb1"]
+streams_count = 9
+stream_0/stream = ExtResource("13_swuxk")
+stream_1/stream = ExtResource("14_wx1m2")
+stream_2/stream = ExtResource("15_n1rcy")
+stream_3/stream = ExtResource("16_1qwlq")
+stream_4/stream = ExtResource("17_n7s7i")
+stream_5/stream = ExtResource("18_mnych")
+stream_6/stream = ExtResource("19_bgf71")
+stream_7/stream = ExtResource("20_evnwc")
+stream_8/stream = ExtResource("21_b6u7a")
+
 [node name="House" type="Area2D" unique_id=743035152]
 scale = Vector2(2, 2)
 script = ExtResource("1_ukivu")
-sickness = 3
+sickness = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1735440793]
 position = Vector2(0, 64)
@@ -51,6 +90,24 @@ offset = Vector2(-96, 0)
 
 [node name="Torchparticle" parent="." unique_id=986599773 instance=ExtResource("5_ds3en")]
 position = Vector2(-72, 20)
+
+[node name="Sickness" type="AudioStreamPlayer2D" parent="." unique_id=2082757620]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_ns3ri")
+max_distance = 1000.0
+bus = &"MapSFX"
+
+[node name="Yap" type="AudioStreamPlayer2D" parent="." unique_id=1698601236]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_epkb1")
+max_distance = 1000.0
+bus = &"MapSFX"
+
+[node name="Kthx" type="AudioStreamPlayer2D" parent="." unique_id=1973154714]
+unique_name_in_owner = true
+stream = ExtResource("22_qwi5q")
+max_distance = 1000.0
+bus = &"MapSFX"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

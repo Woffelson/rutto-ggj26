@@ -11,14 +11,24 @@ var dealt: bool = false
 @onready var sicko: Sprite2D = %Sairas
 @onready var sicko_scale: Vector2 = sicko.scale
 @onready var door_sfx: Node2D 
+@onready var sick_sfx: AudioStreamPlayer2D = %Sickness
+@onready var yap_sfx: AudioStreamPlayer2D = %Yap
+@onready var thx_sfx: AudioStreamPlayer2D = %Kthx
 @onready var timer: Timer = Timer.new()
+@onready var sfx_timer: Timer = Timer.new()
 @onready var heal_partikles: Node2D = preload("res://map/gfx/Healparticle.tscn").instantiate()
 @onready var skull_partikles: Node2D = preload("res://map/gfx/Skullparticle.tscn").instantiate()
 
 signal moved_near(in_or_out: bool)
 
 func _ready() -> void:
+	sick_sfx.max_distance = 512
+	yap_sfx.max_distance = 512
+	thx_sfx.max_distance = 512
 	add_child(timer)
+	add_child(sfx_timer)
+	sfx_timer.timeout.connect(random_sfx)
+	sfx_timer.start(1.0)
 	timer.wait_time = Global.contamination_delay
 	timer.timeout.connect(func(): if !dealt: Global.contamination += 1)
 
@@ -31,9 +41,27 @@ func _exit_tree() -> void: #I don't want these working when exiting!
 	body_exited.disconnect(_on_body_exited)
 
 func _physics_process(_delta: float) -> void:
-	if sicko_scale == Vector2.ZERO: sicko.hide()
+	if sicko.scale == Vector2.ZERO:
+		sicko.hide()
+		sick_sfx.bus = "drSFX"
+		yap_sfx.bus = "drSFX"
+		thx_sfx.bus = "drSFX"
+	else:
+		sick_sfx.bus = "MapSFX"
+		yap_sfx.bus = "MapSFX"
+		thx_sfx.bus = "MapSFX"
 	#if Input.is_action_just_pressed("ui_focus_next") && sickness == Sickness.SNIFF: #DEBUG
 		#visit(Potion.Type.ONION,true)
+
+func random_sfx() -> void:
+	if randf() > 0.75:
+		yap_sfx.stop()
+		sick_sfx.play()
+	elif sicko.visible:
+		sick_sfx.stop()
+		yap_sfx.play()
+	sfx_timer.wait_time = randf_range(0.2,1.5)
+	sfx_timer.start()
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:

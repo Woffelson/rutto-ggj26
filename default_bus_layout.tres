@@ -22,9 +22,9 @@ sidechain = &"SFX"
 
 [sub_resource type="AudioEffectReverb" id="AudioEffectReverb_g28q7"]
 resource_name = "Reverb"
-room_size = 0.69
-damping = 0.73
-wet = 0.22
+damping = 0.84
+hipass = 0.21
+wet = 0.19
 
 [sub_resource type="AudioEffectLimiter" id="AudioEffectLimiter_j3pel"]
 resource_name = "Limiter"
