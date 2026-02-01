@@ -31,10 +31,10 @@ func reset_scenes() -> void:
 	inventory = inventory_path.instantiate()
 	current_view = null
 
-func _input(_event: InputEvent) -> void: #TODO tmp solutions, needs GUI?
-	if Input.is_action_just_pressed("ui_accept"):
-		switch_view(inventory)
-	#if Input.is_action_just_pressed("ui_focus_next"): #early debug
+func _input(_event: InputEvent) -> void: #early testing
+	#if Input.is_action_just_pressed("ui_accept"):
+		#switch_view(inventory)
+	#if Input.is_action_just_pressed("ui_focus_next"):
 		#switch_view(game_map)
 	if Input.is_action_just_pressed("ui_cancel"):
 		back_to_main_menu()

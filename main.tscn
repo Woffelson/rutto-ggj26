@@ -16,19 +16,18 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 stream = ExtResource("2_0xm2m")
 bus = &"Music"
-parameters/looping = false
+parameters/looping = true
 
 [node name="MenuMusic" type="AudioStreamPlayer" parent="Music" unique_id=179291555]
 unique_name_in_owner = true
 stream = ExtResource("3_lquwl")
 bus = &"Music"
-parameters/looping = false
+parameters/looping = true
 
 [node name="Fanfare" type="AudioStreamPlayer" parent="Music" unique_id=2100729900]
 unique_name_in_owner = true
 stream = ExtResource("4_7mycd")
 bus = &"Music"
-parameters/looping = false
 
 [node name="Failfare" type="AudioStreamPlayer" parent="Music" unique_id=271020872]
 unique_name_in_owner = true

@@ -10,7 +10,7 @@ var dealt: bool = false
 @onready var og_scale_x: float = door.scale.x
 @onready var sicko: Sprite2D = %Sairas
 @onready var sicko_scale: Vector2 = sicko.scale
-@onready var door_sfx: Node2D 
+@onready var door_sfx: Node2D = preload("res://map/door_sfx.tscn").instantiate()
 @onready var sick_sfx: AudioStreamPlayer2D = %Sickness
 @onready var yap_sfx: AudioStreamPlayer2D = %Yap
 @onready var thx_sfx: AudioStreamPlayer2D = %Kthx
@@ -25,6 +25,7 @@ func _ready() -> void:
 	sick_sfx.max_distance = 512
 	yap_sfx.max_distance = 512
 	thx_sfx.max_distance = 512
+	add_child(door_sfx)
 	add_child(timer)
 	add_child(sfx_timer)
 	sfx_timer.timeout.connect(random_sfx)
@@ -75,6 +76,7 @@ func _on_body_entered(body: Node2D) -> void:
 			tween.tween_property(sicko,"scale",sicko_scale,0.75).set_trans(Tween.TRANS_SINE)
 			Global.hud.briefcase.show()
 			Global.current_house = self
+			door_sfx.open.play()
 
 func _on_body_exited(body: Node2D) -> void:
 	if body is Player:
@@ -85,6 +87,8 @@ func _on_body_exited(body: Node2D) -> void:
 		tween.tween_property(sicko,"scale",Vector2.ZERO,0.75).set_trans(Tween.TRANS_SINE)
 		Global.hud.briefcase.hide()
 		Global.current_house = null
+		await get_tree().create_timer(1.0).timeout
+		door_sfx.close.play()
 
 func door_animation(scl: float) -> void:
 	var tween: Tween = create_tween()

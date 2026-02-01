@@ -1,9 +1,31 @@
 [gd_scene format=3 uid="uid://dby1mqhx60kj2"]
 
+[ext_resource type="Script" uid="uid://c4yaguqdf0vbc" path="res://map/door_sfx.gd" id="1_bjgec"]
+[ext_resource type="AudioStream" uid="uid://ix7auyxtrgcv" path="res://map/sfx/doorcreak001.wav" id="1_jd58s"]
+[ext_resource type="AudioStream" uid="uid://b5ea5mis5j8p0" path="res://map/sfx/doorcreak002.wav" id="2_bjgec"]
+[ext_resource type="AudioStream" uid="uid://ddb4s5opkb4g6" path="res://map/sfx/door001.wav" id="3_l4yul"]
+[ext_resource type="AudioStream" uid="uid://c4ttkpfmihbdw" path="res://map/sfx/door002.wav" id="4_0p80x"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_c255c"]
+streams_count = 2
+stream_0/stream = ExtResource("1_jd58s")
+stream_1/stream = ExtResource("2_bjgec")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_t5nhy"]
+streams_count = 2
+stream_0/stream = ExtResource("3_l4yul")
+stream_1/stream = ExtResource("4_0p80x")
+
 [node name="DoorSfx" type="Node2D" unique_id=1409079857]
+script = ExtResource("1_bjgec")
 
 [node name="Open" type="AudioStreamPlayer2D" parent="." unique_id=819489723]
 unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_c255c")
+max_distance = 512.0
+bus = &"MapSFX"
 
 [node name="Close" type="AudioStreamPlayer2D" parent="." unique_id=1352940706]
 unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_t5nhy")
+max_distance = 1000.0
