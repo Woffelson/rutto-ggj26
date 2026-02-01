@@ -10,10 +10,11 @@
 [ext_resource type="Texture2D" uid="uid://dt1wmos55obfv" path="res://map/gfx/kyltti.webp" id="6_j51yq"]
 [ext_resource type="Texture2D" uid="uid://d30q3mjtfipc2" path="res://map/gfx/talo1.png" id="6_spk38"]
 [ext_resource type="PackedScene" uid="uid://bjhawab5wlupw" path="res://map/house_c.tscn" id="7_ly7yr"]
-[ext_resource type="PackedScene" uid="uid://by4s6vlqkqmrw" path="res://map/gfx/Flyparticle.tscn" id="7_naws2"]
+[ext_resource type="PackedScene" path="res://map/gfx/Flyparticle.tscn" id="7_naws2"]
 [ext_resource type="PackedScene" uid="uid://li0npwjf2677" path="res://map/house_d.tscn" id="8_j51yq"]
 [ext_resource type="PackedScene" uid="uid://yr8ygc5d1u2e" path="res://map/house_e.tscn" id="9_spk38"]
 [ext_resource type="Texture2D" uid="uid://byef2hrv72tt0" path="res://map/gfx/Cat.png" id="14_kwifk"]
+[ext_resource type="Script" uid="uid://dhjywpvfgek82" path="res://map/catto.gd" id="15_xt1j0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lhyto"]
 size = Vector2(32, 2160)
@@ -374,5 +375,7 @@ offset_bottom = 2176.0
 texture = SubResource("NoiseTexture2D_6rqhj")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=874256873]
-position = Vector2(-60, -386)
+position = Vector2(-60, -354)
 texture = ExtResource("14_kwifk")
+offset = Vector2(0, -32)
+script = ExtResource("15_xt1j0")

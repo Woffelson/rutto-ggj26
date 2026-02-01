@@ -88,18 +88,21 @@ position = Vector2(60, 0)
 [node name="Sickness" type="AudioStreamPlayer2D" parent="." unique_id=2056661889]
 unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_r2lff")
+volume_db = 2.0
 max_distance = 1000.0
 bus = &"MapSFX"
 
 [node name="Yap" type="AudioStreamPlayer2D" parent="." unique_id=1266648003]
 unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_3le82")
+volume_db = 2.0
 max_distance = 1000.0
 bus = &"MapSFX"
 
 [node name="Kthx" type="AudioStreamPlayer2D" parent="." unique_id=1871556067]
 unique_name_in_owner = true
 stream = ExtResource("17_2prte")
+volume_db = 2.0
 max_distance = 1000.0
 bus = &"MapSFX"
 
