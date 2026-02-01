@@ -21,6 +21,7 @@ var stopping: bool = false:
 @onready var tween: Tween = get_tree().create_tween()
 @onready var animu_og_scale: Vector2 = animu_spr.scale
 @onready var walk_sfx: AudioStreamPlayer = %WalkSFX
+@onready var hmmm: AudioStreamPlayer = %Hmmm
 
 func _ready() -> void:
 	Global.player = self
@@ -29,8 +30,10 @@ func _ready() -> void:
 	tween.tween_property(animu_spr,"scale",animu_og_scale+(Vector2(-0.01,0.01)),1)
 
 func _enter_tree() -> void:
+	await get_tree().process_frame
+	hmmm.play()
 	stopping = true
-	stop_delay = 4.0
+	stop_delay = 3.0
 
 func _physics_process(delta: float) -> void:
 	hor_ctrl = Input.get_axis("key_left","key_right")
