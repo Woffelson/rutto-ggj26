@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bu4cnf2ouxgwp" path="res://map/gfx/tyyppi.png" id="3_8foca"]
 [ext_resource type="Texture2D" uid="uid://b7xy7v3mnooca" path="res://map/gfx/ovi_fixed.png" id="4_knphp"]
 [ext_resource type="PackedScene" path="res://map/Torchparticle.tscn" id="5_p40ug"]
+[ext_resource type="Texture2D" uid="uid://cw2pcgt7b7fya" path="res://map/gfx/fly.webp" id="6_hl2wd"]
 [ext_resource type="AudioStream" uid="uid://bpu56ncxqaj5l" path="res://map/sfx/characters/hikka/hikka001.wav" id="6_knphp"]
 [ext_resource type="AudioStream" uid="uid://cvp4kajhjrh45" path="res://map/sfx/characters/hikka/hikka002.wav" id="7_8foca"]
 [ext_resource type="AudioStream" uid="uid://c3ngov02vfky0" path="res://map/sfx/characters/hikka/hikka003.wav" id="8_dphyf"]
@@ -23,12 +24,21 @@
 [ext_resource type="AudioStream" uid="uid://bi3wgh433stxi" path="res://map/sfx/characters/hikka/hikkanen011.wav" id="21_ys464"]
 [ext_resource type="AudioStream" uid="uid://b83biinefl4oi" path="res://map/sfx/characters/hikka/hikkanen010.wav" id="22_hb1oa"]
 [ext_resource type="Texture2D" uid="uid://c32k34xldph0y" path="res://map/gfx/soihtu_seina.png" id="23_8foca"]
+[ext_resource type="AudioStream" uid="uid://bm5vko36bhg7a" path="res://map/sfx/insect_bee_fly_buzz-103494.mp3" id="25_yla1f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a73il"]
 size = Vector2(192, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j5a6b"]
 size = Vector2(256, 128)
+
+[sub_resource type="Curve" id="Curve_o0jwe"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_2nolk"]
+offsets = PackedFloat32Array(0.83950615, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_oob5f"]
 streams_count = 6
@@ -92,24 +102,49 @@ offset = Vector2(-96, 0)
 [node name="Torchparticle" parent="." unique_id=986599773 instance=ExtResource("5_p40ug")]
 position = Vector2(-2, -68)
 
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=666649284]
+unique_name_in_owner = true
+z_index = 1
+emitting = false
+texture = ExtResource("6_hl2wd")
+lifetime = 2.0
+one_shot = true
+explosiveness = 0.73
+direction = Vector2(0, -1)
+spread = 46.34
+gravity = Vector2(0, 0)
+initial_velocity_min = 79.21
+initial_velocity_max = 148.51
+orbit_velocity_min = -3.0
+orbit_velocity_max = 3.0
+linear_accel_min = -5.94
+linear_accel_max = 19.8
+radial_accel_min = -3.0
+radial_accel_max = 3.0
+tangential_accel_min = -2.0
+tangential_accel_max = 2.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_o0jwe")
+color_ramp = SubResource("Gradient_2nolk")
+
 [node name="Sickness" type="AudioStreamPlayer2D" parent="." unique_id=2015122539]
 unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_oob5f")
-volume_db = 4.0
+volume_db = 10.0
 max_distance = 1000.0
 bus = &"MapSFX"
 
 [node name="Yap" type="AudioStreamPlayer2D" parent="." unique_id=1485208332]
 unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_y7fxh")
-volume_db = 3.0
+volume_db = 8.0
 max_distance = 1000.0
 bus = &"MapSFX"
 
 [node name="Kthx" type="AudioStreamPlayer2D" parent="." unique_id=1853083701]
 unique_name_in_owner = true
 stream = ExtResource("22_hb1oa")
-volume_db = 4.0
+volume_db = 10.0
 max_distance = 1000.0
 bus = &"MapSFX"
 
@@ -117,6 +152,13 @@ bus = &"MapSFX"
 position = Vector2(-1, -47.5)
 scale = Vector2(0.45955884, 0.375)
 texture = ExtResource("23_8foca")
+
+[node name="Flies" type="AudioStreamPlayer2D" parent="." unique_id=68924841]
+unique_name_in_owner = true
+stream = ExtResource("25_yla1f")
+volume_db = 2.0
+max_distance = 1000.0
+max_polyphony = 3
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

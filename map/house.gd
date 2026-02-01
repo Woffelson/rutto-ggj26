@@ -77,6 +77,13 @@ func _on_body_entered(body: Node2D) -> void:
 			Global.hud.briefcase.show()
 			Global.current_house = self
 			door_sfx.open.play()
+			if sickness == Sickness.HICKUP:
+				%CPUParticles2D.emitting = true
+				%Flies.play()
+				await get_tree().create_timer(0.1).timeout
+				%Flies.play()
+				await get_tree().create_timer(0.2).timeout
+				%Flies.play()
 
 func _on_body_exited(body: Node2D) -> void:
 	if body is Player:
