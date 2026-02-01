@@ -4,6 +4,7 @@
 
 [resource]
 Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("1_6wn0y")
 Label/colors/font_color = Color(0.12225223, 0.12225225, 0.1222522, 0.89411765)
 Label/font_sizes/font_size = 24
 Label/fonts/font = ExtResource("1_6wn0y")
