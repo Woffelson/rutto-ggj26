@@ -30,8 +30,8 @@ func _on_to_menu_pressed() -> void:
 
 func _on_briefcase_pressed() -> void:
 	if on_map:
-		#briefcase.hide()
-		briefcase.text = "Close Briefcase"
+		briefcase.hide()
+		#briefcase.text = "Close Briefcase"
 		switched_to_briefcase.emit()
 	else: #if hidden, obsolete
 		back_to_map()

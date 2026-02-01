@@ -64,14 +64,20 @@ func set_potions() -> void:
 
 func _physics_process(_delta: float) -> void:
 	lenses.position = get_global_mouse_position()
-	if Input.is_action_just_pressed("mb_left") && pick:
-		Global.selected_potion.reparent(potions) #items persist
-		medicine_chosen.emit(Global.selected_potion.type,Global.selected_potion.healthy)
-		#potion_scenes.erase(Global.selected_potion) #items are...
-		#Global.selected_potion.queue_free() #...used
-		Global.selected_potion = null
-		await get_tree().process_frame
-		disable_pick()
+	if Input.is_action_just_pressed("mb_left"):
+		if pick:
+			Global.selected_potion.reparent(potions) #items persist
+			medicine_chosen.emit(Global.selected_potion.type,Global.selected_potion.healthy)
+			#potion_scenes.erase(Global.selected_potion) #items are...
+			#Global.selected_potion.queue_free() #...used
+			Global.selected_potion = null
+			await get_tree().process_frame
+			disable_pick()
+		elif Global.selected_potion != null:
+			Global.selected_potion.reparent(potions)
+			Global.selected_potion = null
+			await get_tree().process_frame
+			disable_pick()
 	if Global.selected_potion != null && !pick: hint_tween.play()
 	elif Global.selected_potion == null:
 		hint_tween.stop()

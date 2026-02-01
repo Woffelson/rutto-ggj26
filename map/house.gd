@@ -105,10 +105,15 @@ func visit(type: Potion.Type, healthy: bool) -> void:
 			heal_partikles.get_child(0).emitting = true
 			Global.cured += 1
 			Global.contamination -= Global.contamination_heal #reward
+			sick_sfx.volume_db = -48
+			yap_sfx.volume_db = -48
 		else:
 			door.add_child(skull_partikles)
 			skull_partikles.get_child(0).emitting = true
 			Global.contamination += Global.contamination_heal #punishment
+			sick_sfx.volume_db = -48
+			yap_sfx.volume_db = -48
+			
 		dealt = true
 		Global.visited += 1
 		#Global.player.stopping = true #I want this working but I probably cannot...
