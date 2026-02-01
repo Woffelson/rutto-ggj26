@@ -22,3 +22,10 @@ var player: Player
 
 signal survived()
 signal dieded()
+
+func reset() -> void:
+	visited = 0
+	cured = 0
+	contamination = 0
+	selected_potion = null
+	current_house = null

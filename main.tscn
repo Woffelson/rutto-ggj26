@@ -2,12 +2,36 @@
 
 [ext_resource type="Script" uid="uid://dvtijkcfyqr6o" path="res://main.gd" id="1_ig7tw"]
 [ext_resource type="AudioStream" uid="uid://dk3c14184roaj" path="res://music/2026.mp3" id="2_0xm2m"]
+[ext_resource type="AudioStream" uid="uid://r8ruhrfv6g30" path="res://music/malpractice_002_main.mp3" id="3_lquwl"]
+[ext_resource type="AudioStream" uid="uid://b2ce3au1iej3o" path="res://music/malpractice_002_fanfare.mp3" id="4_7mycd"]
+[ext_resource type="AudioStream" uid="uid://djs8s17jhtmar" path="res://music/malpractice_001.mp3" id="5_272bh"]
 
 [node name="Main" type="Node" unique_id=207028472]
 script = ExtResource("1_ig7tw")
 
-[node name="BGMusic" type="AudioStreamPlayer" parent="." unique_id=1292940829]
+[node name="Music" type="Node" parent="." unique_id=2038767607]
+unique_name_in_owner = true
+
+[node name="BGMusic" type="AudioStreamPlayer" parent="Music" unique_id=1292940829]
+unique_name_in_owner = true
 stream = ExtResource("2_0xm2m")
-autoplay = true
+bus = &"Music"
+parameters/looping = false
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="Music" unique_id=179291555]
+unique_name_in_owner = true
+stream = ExtResource("3_lquwl")
+bus = &"Music"
+parameters/looping = false
+
+[node name="Fanfare" type="AudioStreamPlayer" parent="Music" unique_id=2100729900]
+unique_name_in_owner = true
+stream = ExtResource("4_7mycd")
+bus = &"Music"
+parameters/looping = false
+
+[node name="Failfare" type="AudioStreamPlayer" parent="Music" unique_id=271020872]
+unique_name_in_owner = true
+stream = ExtResource("5_272bh")
 bus = &"Music"
 parameters/looping = false

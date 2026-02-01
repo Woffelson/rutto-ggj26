@@ -95,6 +95,7 @@ func disable_pick() -> void:
 	pick = false
 
 func _on_cough_timer_timeout() -> void:
+	%Hmmm.stop()
 	cough.play()
 	cough_timer.wait_time = randi_range(5,10)
 
@@ -103,6 +104,9 @@ func _on_outside_area_entered(_area: Area2D) -> void:
 		var tween: Tween = create_tween()
 		tween.tween_property(colorrekt,"color",Color.WHITE,0.5).set_trans(Tween.TRANS_SINE)
 		pick = true
+		cough.stop()
+		%Hmmm.stop()
+		%Hmmm.play()
 	if Global.hud: Global.hud.back.show()
 
 func _on_outside_area_exited(_area: Area2D) -> void:

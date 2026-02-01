@@ -2,6 +2,14 @@
 
 [ext_resource type="Script" uid="uid://bx30uhnx1gt56" path="res://main_menu/ending.gd" id="1_uoik3"]
 [ext_resource type="Texture2D" uid="uid://dba1fkjab1j7x" path="res://main_menu/gfx/reference.png" id="2_p8d88"]
+[ext_resource type="AudioStream" uid="uid://bxdvdureifjqm" path="res://inventory/sfx/dr/tohtori009.wav" id="3_vac1b"]
+[ext_resource type="AudioStream" uid="uid://cqy64h1nl3k3w" path="res://inventory/sfx/dr/tohtori008.wav" id="4_ageji"]
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_ji68g"]
+loop = false
+stream_count = 2
+stream_0 = ExtResource("3_vac1b")
+stream_1 = ExtResource("4_ageji")
 
 [node name="Survive" type="Control" unique_id=1396558701]
 layout_mode = 3
@@ -69,5 +77,9 @@ autowrap_mode = 2
 [node name="Button" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1090188978]
 layout_mode = 2
 text = "Main menu"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=588175902]
+stream = SubResource("AudioStreamPlaylist_ji68g")
+bus = &"MapSFX"
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

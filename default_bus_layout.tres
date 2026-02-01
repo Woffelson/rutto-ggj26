@@ -20,6 +20,13 @@ resource_name = "Limiter"
 resource_name = "Compressor"
 sidechain = &"SFX"
 
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_n8wo2"]
+resource_name = "Reverb"
+room_size = 0.12
+damping = 0.73
+spread = 0.16
+wet = 0.06
+
 [sub_resource type="AudioEffectReverb" id="AudioEffectReverb_g28q7"]
 resource_name = "Reverb"
 damping = 0.84
@@ -50,6 +57,8 @@ bus/2/volume_db = 0.0
 bus/2/send = &"Master"
 bus/2/effect/0/effect = SubResource("AudioEffectCompressor_j3pel")
 bus/2/effect/0/enabled = true
+bus/2/effect/1/effect = SubResource("AudioEffectReverb_n8wo2")
+bus/2/effect/1/enabled = true
 bus/3/name = &"MapSFX"
 bus/3/solo = false
 bus/3/mute = false

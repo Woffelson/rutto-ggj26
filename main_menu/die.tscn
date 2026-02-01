@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bx30uhnx1gt56" path="res://main_menu/ending.gd" id="1_xudh2"]
 [ext_resource type="Texture2D" uid="uid://c4mqrt5jusb1k" path="res://tmp.tres" id="2_0p8iu"]
+[ext_resource type="AudioStream" uid="uid://cryr74fw22q3l" path="res://inventory/sfx/dr/lopullinen.wav" id="3_fa8th"]
 
 [node name="Die" type="Control" unique_id=1396558701]
 layout_mode = 3
@@ -55,5 +56,9 @@ autowrap_mode = 2
 [node name="Button" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1090188978]
 layout_mode = 2
 text = "Main menu"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=535677858]
+stream = ExtResource("3_fa8th")
+bus = &"drSFX"
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

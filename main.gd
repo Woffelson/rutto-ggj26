@@ -13,6 +13,7 @@ var inventory: PotionMenu
 var current_view: Node2D
 
 func _ready() -> void:
+	%MenuMusic.play()
 	reset_scenes()
 	add_child(main_menu)
 	main_menu.started.connect(start_game)
@@ -44,6 +45,8 @@ func start_game() -> void:
 	add_child(hud)
 	current_view = game_map
 	hud.on_map = true
+	mute_music()
+	%BGMusic.play()
 
 func switch_view(new_view: Node2D) -> void:
 	if current_view != new_view:
@@ -52,6 +55,7 @@ func switch_view(new_view: Node2D) -> void:
 		current_view = new_view
 
 func back_to_main_menu() -> void:
+	Global.reset()
 	get_tree().reload_current_scene()
 
 func send_medicine(type: Potion.Type, healthy: bool) -> void:
@@ -64,9 +68,17 @@ func happy_end() -> void:
 	remove_child(hud)
 	#reset_scenes()
 	add_child(survive)
+	mute_music()
+	%Fanfare.play()
 
 func sad_end() -> void:
 	game_map.queue_free()
 	inventory.queue_free()
 	remove_child(hud)
 	add_child(died)
+	mute_music()
+	%Failfare.play()
+
+func mute_music() -> void:
+	for child: AudioStreamPlayer in %Music.get_children():
+		child.stop()
